@@ -18,16 +18,18 @@ class LoginCell: UICollectionViewCell{
     }()
     
     
-    let StarButton: UIButton = {
+    lazy var StarButton: UIButton = {
         let st = UIButton(type: .system)
         st.setTitle("Bắt Đầu Nào", for: .normal)
         st.setTitleColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
-        st.backgroundColor = #colorLiteral(red: 1, green: 0.708275497, blue: 0.09586834162, alpha: 1)
-        st.target(forAction: "chuyenManHinhMain", withSender: nil)
+        st.backgroundColor = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)
+        st.addTarget(self, action: #selector(chuyenManHinhMain), for: .touchUpInside)
         return st
     }()
+    
+    var delegateChuyenManHinh: ChuyenManHinhLoginDelegate?
     func chuyenManHinhMain(){
-       
+        delegateChuyenManHinh?.chuyenmanhinh()
     }
     
     override init(frame: CGRect) {

@@ -8,7 +8,12 @@
 
 import UIKit
 
-class ViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
+protocol ChuyenManHinhLoginDelegate {
+    func chuyenmanhinh()
+}
+
+
+class ViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,ChuyenManHinhLoginDelegate {
 
     lazy var collectionView: UICollectionView = {
         
@@ -25,6 +30,36 @@ class ViewController: UIViewController,UICollectionViewDelegate,UICollectionView
         cv.isPagingEnabled = true // bậc tính năng canh giữa các trang
         return cv
     }()
+    
+    
+    func chuyenmanhinh(){
+        print("da nhan")
+
+      
+        // kiểm tra nếu keywindows ( đã đăng nhập )
+        // nếu không là màn hình root view ( Main )
+//       let rootViewController = UIApplication.shared.keyWindow?.rootViewController
+//        guard let mainNavigationController = rootViewController as? MainNavigationController else { return }
+//
+//        mainNavigationController.viewControllers = [Main()]
+//
+        UserDefaults.standard.setIsLoggedIn(value: true)
+        
+//dismiss(animated: true, completion: nil)
+  //      self.performSegue(withIdentifier: "chuyenmanhinhMain", sender: self)
+
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        let vc = sb.instantiateViewController(withIdentifier: "ManHinhHome") as! Main
+        
+        let navigationController = UINavigationController(rootViewController: vc)
+       self.present(navigationController, animated: true, completion: nil)
+        
+        
+        
+//        self.navigationController?.pushViewController(manhinhMain, animated: true)
+//         self.present(manhinhMain, animated: true, completion: nil)
+        
+    }
     
     let cellID = "cellID"
     let MainCellID = "MainCellID"
@@ -140,8 +175,13 @@ class ViewController: UIViewController,UICollectionViewDelegate,UICollectionView
         
         // kiểm tra nếu trang hiện tại là trang cuối thì add thêm 1 cell nữa ( Main Cell )
         if indexPath.item == pages.count {
-            let MainCell = collectionView.dequeueReusableCell(withReuseIdentifier: MainCellID, for: indexPath)
-            return MainCell
+            let MainCell2 = collectionView.dequeueReusableCell(withReuseIdentifier: MainCellID, for: indexPath) as! LoginCell
+            
+            
+            MainCell2.delegateChuyenManHinh = self
+            
+        
+            return MainCell2
         }
         // Tạo cell bình thường
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath) as! Pagecell
@@ -162,7 +202,17 @@ class ViewController: UIViewController,UICollectionViewDelegate,UICollectionView
         SkipAnchor?.constant = -40
         NextAnchor?.constant = -40
     }
-    
+    func finishLoggingIn() {
+        //we'll perhaps implement the home controller a little later
+        let rootViewController = UIApplication.shared.keyWindow?.rootViewController
+        guard let mainNavigationController = rootViewController as? MainNavigationController else { return }
+        
+        mainNavigationController.viewControllers = [Main()]
+        
+        UserDefaults.standard.setIsLoggedIn(value: true)
+        
+        dismiss(animated: true, completion: nil)
+    }
     
     
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>)
