@@ -33,31 +33,17 @@ class ViewController: UIViewController,UICollectionViewDelegate,UICollectionView
     
     
     func chuyenmanhinh(){
-        print("da nhan")
-
-      
-        // kiểm tra nếu keywindows ( đã đăng nhập )
-        // nếu không là màn hình root view ( Main )
-//       let rootViewController = UIApplication.shared.keyWindow?.rootViewController
-//        guard let mainNavigationController = rootViewController as? MainNavigationController else { return }
-//
-//        mainNavigationController.viewControllers = [Main()]
-//
+       
         UserDefaults.standard.setIsLoggedIn(value: true)
         
-//dismiss(animated: true, completion: nil)
-  //      self.performSegue(withIdentifier: "chuyenmanhinhMain", sender: self)
-
+        
         let sb = UIStoryboard(name: "Main", bundle: nil)
         let vc = sb.instantiateViewController(withIdentifier: "Duy") as! SWRevealViewController
-        
-      //  let navigationController = UINavigationController(rootViewController: vc)
+        vc.modalTransitionStyle = .partialCurl
        self.present(vc, animated: true, completion: nil)
-        
-        
-        
-//        self.navigationController?.pushViewController(manhinhMain, animated: true)
-//         self.present(manhinhMain, animated: true, completion: nil)
+   
+     
+  
         
     }
     
@@ -127,6 +113,12 @@ class ViewController: UIViewController,UICollectionViewDelegate,UICollectionView
     
     func HanhdongSkip(){
         collectionView.scrollToItem(at: IndexPath(item: pages.count , section: 0), at: .centeredHorizontally, animated: true)
+        thongtinAutolayoutForButton()
+        UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseOut, animations:
+            {
+                self.view.layoutIfNeeded()
+                
+        }, completion: nil)
     }
     
     

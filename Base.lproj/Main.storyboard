@@ -22,10 +22,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
+                    <connections>
+                        <segue destination="p9d-r4-Pon" kind="show" identifier="chuyenmanhinh" id="IXa-4o-tbj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-625" y="133"/>
+            <point key="canvasLocation" x="-945" y="116"/>
         </scene>
         <!--Reveal View Controller-->
         <scene sceneID="DKL-oX-poy">
@@ -129,22 +132,31 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3n0-XW-Agh">
-                                <rect key="frame" x="210" y="213" width="42" height="82"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F2f-a2-xjd">
+                                <rect key="frame" x="0.0" y="612" width="375" height="55"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="55" id="6H4-QQ-GDc"/>
+                                </constraints>
+                                <items>
+                                    <tabBarItem systemItem="favorites" id="QOo-ow-koI"/>
+                                    <tabBarItem systemItem="more" id="ghX-7f-eXy"/>
+                                </items>
+                                <color key="barTintColor" red="0.13725490196078433" green="0.13725490196078433" blue="0.13725490196078433" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </tabBar>
                         </subviews>
                         <color key="backgroundColor" red="0.74488717541625515" green="1" blue="0.49920970040729595" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="Xhh-YA-ihE" firstAttribute="top" secondItem="F2f-a2-xjd" secondAttribute="bottom" id="BA1-BR-0i0"/>
+                            <constraint firstAttribute="trailing" secondItem="F2f-a2-xjd" secondAttribute="trailing" id="YYR-jP-9ND"/>
+                            <constraint firstItem="F2f-a2-xjd" firstAttribute="leading" secondItem="c6L-D7-cOy" secondAttribute="leading" id="uQG-nv-Nb1"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="wcC-UI-47M">
                         <barButtonItem key="leftBarButtonItem" title="Item" id="Frp-vB-mSN"/>
                     </navigationItem>
                     <connections>
                         <outlet property="Nut" destination="Frp-vB-mSN" id="Srb-Hr-mm5"/>
-                        <outlet property="thongbao" destination="3n0-XW-Agh" id="TkJ-vf-oXl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kBI-xO-fmY" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -159,6 +171,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="gXq-CS-I21">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.13725490196078433" green="0.13725490196078433" blue="0.13725490196078433" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

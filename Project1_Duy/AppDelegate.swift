@@ -41,7 +41,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let initialViewController = storyboard.instantiateViewController(withIdentifier: "ManHinhIntro") as! ViewController
             
             self.window?.rootViewController = initialViewController
-            self.window?.makeKeyAndVisible()
+            self.window?.makeKeyAndVisible() // show màn hình
             return true
             
         }
