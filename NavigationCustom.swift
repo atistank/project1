@@ -19,9 +19,9 @@ class MainNavigationController: UINavigationController {
             let sb = UIStoryboard(name: "Main", bundle: nil)
             let vc = sb.instantiateViewController(withIdentifier: "ManHinhHome") as! Main
             
-            // set màn hình khởi động là màn hình main
-            let homeController = vc
-            viewControllers = [homeController]
+            
+            viewControllers = [vc]
+         //   self.present(vc, animated: true, completion: nil)
         } else {
             perform(#selector(showLoginController), with: nil, afterDelay: 0.01)
         }

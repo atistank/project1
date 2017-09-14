@@ -10,60 +10,27 @@ import UIKit
 
 class Main: UIViewController {
 
-    @IBAction func VuotSangPhai(_ sender: Any) {
-        
-        SlideMenu()
-    }
-    @IBAction func VuotSangTrai(_ sender: Any) {
-        SlideMenu()
-    }
+    @IBOutlet weak var thongbao: UILabel!
+    @IBOutlet weak var Nut: UIBarButtonItem!
     
-    @IBOutlet weak var ViewMain: UIView!
-    
-    
-    @IBOutlet weak var SlideMenuV: UIView!
     var menuStatus: Bool = false
     override func viewDidLoad() {
         super.viewDidLoad()
-        ViewMain.backgroundColor = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)
-        //navigationItem.title = "Home"
-        // menu lúc đầu ẩn
-        SlideMenuV.frame.origin.x = -SlideMenuV.frame.width
-       // SlideMenuV.frame.origin.y = 20 + (navigationController?.navigationBar.frame.height)!
-        //NutMenu()
-      
+        view.backgroundColor = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)
+        Nut.target = SWRevealViewController()
+        Nut.action = #selector(SWRevealViewController().revealToggle(_:))
+        thongbao.text = String(UserDefaults.standard.isLoggedIn())
         
         
+       navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Sign Out", style: .plain, target: self, action: #selector(handleSignOut))
+//
+//
+//
+//        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Menu", style: .plain, target: self, action: #selector(SlideMenu))
         
-        
-      //  navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Sign Out", style: .plain, target: self, action: #selector(handleSignOut))
-        
-        
-        
-    //    navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Menu", style: .plain, target: self, action: #selector(SlideMenu))
-        
-      
-        
-       
-        
-        
-        
-        
-        /// Auto layout
-       ViewMain.anchorToTop(view.topAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor)
-        
-        
-       
-    }
     
-    func NutMenu(){
-        let btmenu = UIButton(frame: CGRect(x: 10, y: 10, width: 30, height: 30))
-        btmenu.setBackgroundImage(#imageLiteral(resourceName: "MenuImage"), for: .normal)
-        navigationController?.navigationBar.addSubview(btmenu)
-        btmenu.addTarget(self, action: #selector(SlideMenu), for: .touchUpInside)
-        
+      
     }
-    
     
     func handleSignOut() {
         UserDefaults.standard.setIsLoggedIn(value: false)
@@ -73,20 +40,9 @@ class Main: UIViewController {
     }
     
     func SlideMenu(){
-       menuStatus = !menuStatus
-        
-        switch menuStatus {
-        case true:
-             SlideMenuV.frame.origin.x = 0
-            
-           
-            
-        case false:
-             SlideMenuV.frame.origin.x = -SlideMenuV.frame.width
-            
-            
+    
         }
         
-    }
+    
     
 }

@@ -22,7 +22,9 @@
 		E145D0111F63A635008990B4 /* ChaoMungCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E145D0101F63A635008990B4 /* ChaoMungCell.swift */; };
 		E145D0131F63B387008990B4 /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = E145D0121F63B387008990B4 /* Main.swift */; };
 		E184032C1F619B9C00570A74 /* Trang.swift in Sources */ = {isa = PBXBuildFile; fileRef = E184032B1F619B9C00570A74 /* Trang.swift */; };
+		E19DF8181F699DA200FD9505 /* SildeMenuFix.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19DF8171F699DA200FD9505 /* SildeMenuFix.swift */; };
 		E1B7048D1F61883B0084D0E9 /* PageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B7048C1F61883B0084D0E9 /* PageCell.swift */; };
+		E1C239701F6A33E6000ECA09 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1C2396F1F6A33E6000ECA09 /* SWRevealViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,7 +66,11 @@
 		E145D0101F63A635008990B4 /* ChaoMungCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChaoMungCell.swift; sourceTree = "<group>"; };
 		E145D0121F63B387008990B4 /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
 		E184032B1F619B9C00570A74 /* Trang.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trang.swift; sourceTree = "<group>"; };
+		E19DF8171F699DA200FD9505 /* SildeMenuFix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SildeMenuFix.swift; sourceTree = "<group>"; };
 		E1B7048C1F61883B0084D0E9 /* PageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PageCell.swift; path = Project1_Duy/PageCell.swift; sourceTree = "<group>"; };
+		E1C2396D1F6A33E5000ECA09 /* Project1_Duy-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Project1_Duy-Bridging-Header.h"; sourceTree = "<group>"; };
+		E1C2396E1F6A33E6000ECA09 /* SWRevealViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		E1C2396F1F6A33E6000ECA09 /* SWRevealViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,10 +124,13 @@
 		E13A8B311F617EA8002B32E4 /* Project1_Duy */ = {
 			isa = PBXGroup;
 			children = (
+				E1C2396E1F6A33E6000ECA09 /* SWRevealViewController.h */,
+				E1C2396F1F6A33E6000ECA09 /* SWRevealViewController.m */,
 				E13A8B321F617EA8002B32E4 /* AppDelegate.swift */,
 				E13A8B3C1F617EA8002B32E4 /* Assets.xcassets */,
 				E13A8B411F617EA8002B32E4 /* Info.plist */,
 				E13A8B391F617EA8002B32E4 /* Project1_Duy.xcdatamodeld */,
+				E1C2396D1F6A33E5000ECA09 /* Project1_Duy-Bridging-Header.h */,
 			);
 			path = Project1_Duy;
 			sourceTree = "<group>";
@@ -172,6 +181,7 @@
 				E104377F1F6529F400582385 /* NavigationCustom.swift */,
 				E10437811F652A6800582385 /* ManHinhHomeController.swift */,
 				E145D0121F63B387008990B4 /* Main.swift */,
+				E19DF8171F699DA200FD9505 /* SildeMenuFix.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -245,6 +255,7 @@
 					E13A8B2E1F617EA8002B32E4 = {
 						CreatedOnToolsVersion = 8.3.2;
 						DevelopmentTeam = RR46SGS9U5;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
 					E13A8B451F617EA8002B32E4 = {
@@ -311,6 +322,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1C239701F6A33E6000ECA09 /* SWRevealViewController.m in Sources */,
 				E13A8B3B1F617EA8002B32E4 /* Project1_Duy.xcdatamodeld in Sources */,
 				E184032C1F619B9C00570A74 /* Trang.swift in Sources */,
 				E10437861F652C6600582385 /* ExtensionForUserDefauls.swift in Sources */,
@@ -321,6 +333,7 @@
 				E10437801F6529F400582385 /* NavigationCustom.swift in Sources */,
 				E1B7048D1F61883B0084D0E9 /* PageCell.swift in Sources */,
 				E10437821F652A6800582385 /* ManHinhHomeController.swift in Sources */,
+				E19DF8181F699DA200FD9505 /* SildeMenuFix.swift in Sources */,
 				E13A8B331F617EA8002B32E4 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -475,6 +488,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = RR46SGS9U5;
@@ -484,6 +498,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "AGU.Project1-Duy";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Project1_Duy/Project1_Duy-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -492,6 +508,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = RR46SGS9U5;
@@ -501,6 +518,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "AGU.Project1-Duy";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Project1_Duy/Project1_Duy-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

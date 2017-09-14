@@ -49,10 +49,10 @@ class ViewController: UIViewController,UICollectionViewDelegate,UICollectionView
   //      self.performSegue(withIdentifier: "chuyenmanhinhMain", sender: self)
 
         let sb = UIStoryboard(name: "Main", bundle: nil)
-        let vc = sb.instantiateViewController(withIdentifier: "ManHinhHome") as! Main
+        let vc = sb.instantiateViewController(withIdentifier: "Duy") as! SWRevealViewController
         
-        let navigationController = UINavigationController(rootViewController: vc)
-       self.present(navigationController, animated: true, completion: nil)
+      //  let navigationController = UINavigationController(rootViewController: vc)
+       self.present(vc, animated: true, completion: nil)
         
         
         
