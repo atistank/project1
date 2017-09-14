@@ -23,11 +23,10 @@ class Main: UIViewController {
         
         
        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Sign Out", style: .plain, target: self, action: #selector(handleSignOut))
-//
-//
-//
+
 //        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Menu", style: .plain, target: self, action: #selector(SlideMenu))
         
+        self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
     
       
     }
