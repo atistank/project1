@@ -43,7 +43,7 @@ class Main: UIViewController,UITableViewDelegate,UITableViewDataSource {
   
     private func fetchData(){
         let feedParser = FeedParser()
-        feedParser.parseFeed(url: "http://vietnamnet.vn/rss/home.rss") { (rssItems) in
+        feedParser.parseFeed(url: "https://toidicodedao.com/feed/") { (rssItems) in
             self.rssItems = rssItems
             self.celltrangThai = Array(repeating: .morong, count: rssItems.count)
             OperationQueue.main.addOperation {
@@ -83,7 +83,7 @@ class Main: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         tableView.estimatedRowHeight = 145.0
-        tableView.rowHeight = 250
+        tableView.rowHeight = 400
         
         return tableView.rowHeight
     }
