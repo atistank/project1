@@ -9,13 +9,8 @@
 import UIKit
 
 class MenuCusTableViewCell: UITableViewCell {
-
-    
     @IBOutlet weak var LabelText: UILabel!
-    
     @IBOutlet weak var Img: UIImageView!
-    
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -23,8 +18,7 @@ class MenuCusTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+     // Configure the view for the selected state
     }
 
 }

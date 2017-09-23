@@ -13,13 +13,10 @@ class Main: UIViewController,UITableViewDelegate,UITableViewDataSource {
  
     @IBOutlet weak var tbView: UITableView!
     @IBOutlet weak var Nut: UIBarButtonItem!
-    
     var menuStatus: Bool = false
     private var rssItems: [RSSItem]?
     private var celltrangThai: [CellTrangThai]?
-    
-    
-    
+ 
     override func viewDidLoad() {
         super.viewDidLoad()
     
@@ -31,6 +28,8 @@ class Main: UIViewController,UITableViewDelegate,UITableViewDataSource {
         
         tbView.delegate = self
         tbView.dataSource = self
+        // bỏ dòng line giữa các cell của tableview
+        tbView.separatorStyle = UITableViewCellSeparatorStyle.none
         
         fetchData()
         
@@ -38,10 +37,8 @@ class Main: UIViewController,UITableViewDelegate,UITableViewDataSource {
        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Sign Out", style: .plain, target: self, action: #selector(handleSignOut))
 
 //        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Menu", style: .plain, target: self, action: #selector(SlideMenu))
-        
-        self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-    
-      
+    self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+
     }
   
     private func fetchData(){
@@ -53,11 +50,8 @@ class Main: UIViewController,UITableViewDelegate,UITableViewDataSource {
                 // reload phải trong luồng chính
                   self.tbView.reloadSections(IndexSet(integer: 0), with: .left) // reload section tableview
             }
-        }
-   
+        }   
     }
- 
-    
     func handleSignOut() {
         print("thanh menu")
         UserDefaults.standard.setIsLoggedIn(value: false)
@@ -65,15 +59,8 @@ class Main: UIViewController,UITableViewDelegate,UITableViewDataSource {
         let loginController = ViewController()
         present(loginController, animated: true, completion: nil)
     }
-    
-    func SlideMenu(){
-    
-        }
- 
     /// cài đặt tableview
-    
     func numberOfSections(in tableView: UITableView) -> Int {
-      
       return 1
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -89,10 +76,6 @@ class Main: UIViewController,UITableViewDelegate,UITableViewDataSource {
         
         if let item = rssItems?[indexPath.item]{
             cell.item = item
-           
-            
-           
-            
         }
         
         return cell
@@ -100,7 +83,8 @@ class Main: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         tableView.estimatedRowHeight = 145.0
-        tableView.rowHeight = 145
+        tableView.rowHeight = 250
+        
         return tableView.rowHeight
     }
     
@@ -109,12 +93,5 @@ class Main: UIViewController,UITableViewDelegate,UITableViewDataSource {
        
         
     }
-    
-    
-    
-    
-    
-    
-    
-    
+ 
 }

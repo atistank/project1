@@ -17,7 +17,6 @@ class LoginCell: UICollectionViewCell{
         return bk
     }()
     
-    
     lazy var StarButton: UIButton = {
         let st = UIButton(type: .system)
         st.setTitle("Bắt Đầu Nào", for: .normal)
@@ -38,10 +37,7 @@ class LoginCell: UICollectionViewCell{
         addSubview(StarButton)
         backgroundCell.anchorToTop(topAnchor, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor)
         
-      _ =  StarButton.anchor(nil, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, topConstant: 0, leftConstant: 26, bottomConstant: 50, rightConstant: 26, widthConstant: 0, heightConstant: 50)
-        
-        
-       
+      _ =  StarButton.anchor(nil, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, topConstant: 0, leftConstant: 26, bottomConstant: 50, rightConstant: 26, widthConstant: 0, heightConstant: 50)     
     }
     
     required init?(coder aDecoder: NSCoder) {

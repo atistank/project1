@@ -32,7 +32,6 @@ class Pagecell: UICollectionViewCell {
     }
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
         CaiDat()
     }
     let HinhHuongDan: UIImageView = {
@@ -60,8 +59,7 @@ class Pagecell: UICollectionViewCell {
         Line.backgroundColor = UIColor(white: 0.9, alpha: 1)
         return Line
     }()
-    
-    
+   
     func CaiDat(){
         // Add vao view
         addSubview(HinhHuongDan)
