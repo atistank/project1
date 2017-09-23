@@ -39,7 +39,7 @@ class ViewController: UIViewController,UICollectionViewDelegate,UICollectionView
         
         let sb = UIStoryboard(name: "Main", bundle: nil)
         let vc = sb.instantiateViewController(withIdentifier: "Duy") as! SWRevealViewController
-        vc.modalTransitionStyle = .partialCurl
+       // vc.modalTransitionStyle = .partialCurl
        self.present(vc, animated: true, completion: nil)
    
      

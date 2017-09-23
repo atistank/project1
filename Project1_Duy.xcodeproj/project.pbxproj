@@ -27,6 +27,8 @@
 		E1C239721F6A3C16000ECA09 /* MenuSlide.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C239711F6A3C16000ECA09 /* MenuSlide.swift */; };
 		E1C239761F6A5862000ECA09 /* MenuCusTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C239751F6A5862000ECA09 /* MenuCusTableViewCell.swift */; };
 		E1C239781F6A5B9D000ECA09 /* MenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C239771F6A5B9D000ECA09 /* MenuButton.swift */; };
+		E1F2B3871F6CE53E00646F8F /* XMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F2B3861F6CE53E00646F8F /* XMLParser.swift */; };
+		E1F2B3891F6CE67A00646F8F /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F2B3881F6CE67A00646F8F /* MainTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +77,8 @@
 		E1C239711F6A3C16000ECA09 /* MenuSlide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuSlide.swift; sourceTree = "<group>"; };
 		E1C239751F6A5862000ECA09 /* MenuCusTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCusTableViewCell.swift; sourceTree = "<group>"; };
 		E1C239771F6A5B9D000ECA09 /* MenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuButton.swift; sourceTree = "<group>"; };
+		E1F2B3861F6CE53E00646F8F /* XMLParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XMLParser.swift; sourceTree = "<group>"; };
+		E1F2B3881F6CE67A00646F8F /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,9 +109,9 @@
 		E13A8B261F617EA8002B32E4 = {
 			isa = PBXGroup;
 			children = (
-				E184032A1F619B7B00570A74 /* Controller */,
-				E18403291F619B7400570A74 /* View */,
 				E18403281F619B6D00570A74 /* Model */,
+				E18403291F619B7400570A74 /* View */,
+				E184032A1F619B7B00570A74 /* Controller */,
 				E13A8B311F617EA8002B32E4 /* Project1_Duy */,
 				E13A8B491F617EA8002B32E4 /* Project1_DuyTests */,
 				E13A8B541F617EA8002B32E4 /* Project1_DuyUITests */,
@@ -162,6 +166,7 @@
 			children = (
 				E184032B1F619B9C00570A74 /* Trang.swift */,
 				E1C239771F6A5B9D000ECA09 /* MenuButton.swift */,
+				E1F2B3861F6CE53E00646F8F /* XMLParser.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -176,6 +181,7 @@
 				E145D00E1F624F9E008990B4 /* Extension.swift */,
 				E10437851F652C6600582385 /* ExtensionForUserDefauls.swift */,
 				E1C239751F6A5862000ECA09 /* MenuCusTableViewCell.swift */,
+				E1F2B3881F6CE67A00646F8F /* MainTableViewCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -334,8 +340,10 @@
 				E13A8B3B1F617EA8002B32E4 /* Project1_Duy.xcdatamodeld in Sources */,
 				E184032C1F619B9C00570A74 /* Trang.swift in Sources */,
 				E10437861F652C6600582385 /* ExtensionForUserDefauls.swift in Sources */,
+				E1F2B3891F6CE67A00646F8F /* MainTableViewCell.swift in Sources */,
 				E145D0131F63B387008990B4 /* Main.swift in Sources */,
 				E1C239761F6A5862000ECA09 /* MenuCusTableViewCell.swift in Sources */,
+				E1F2B3871F6CE53E00646F8F /* XMLParser.swift in Sources */,
 				E13A8B351F617EA8002B32E4 /* ViewController.swift in Sources */,
 				E145D0111F63A635008990B4 /* ChaoMungCell.swift in Sources */,
 				E145D00F1F624F9E008990B4 /* Extension.swift in Sources */,
