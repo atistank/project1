@@ -10,9 +10,11 @@ import UIKit
 
 class Main: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
- 
-    @IBOutlet weak var tbView: UITableView!
     @IBOutlet weak var Nut: UIBarButtonItem!
+    
+    @IBOutlet weak var Nutphai: UIBarButtonItem!
+    @IBOutlet weak var tbView: UITableView!
+  //  @IBOutlet weak var Nut: UIBarButtonItem!
     var menuStatus: Bool = false
     private var rssItems: [RSSItem]?
     private var celltrangThai: [CellTrangThai]?
@@ -22,19 +24,27 @@ class Main: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
         
         view.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        
+//        let btn1 = UIButton(type: .custom)
+//        btn1.setImage(UIImage(named: "menu2"), for: .normal)
+//        btn1.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
+//        btn1.addTarget(SWRevealViewController(), action: #selector(SWRevealViewController().revealToggle(_:)), for: .touchUpInside)
+//        let item1 = UIBarButtonItem(customView: btn1)
+//        navigationItem.leftBarButtonItem = item1
         Nut.target = SWRevealViewController()
         Nut.action = #selector(SWRevealViewController().revealToggle(_:))
+        Nutphai.target = self
+        Nutphai.action = #selector(handleSignOut)
+        Nut.tintColor = #colorLiteral(red: 0.9625948071, green: 0.705286622, blue: 0.2028543651, alpha: 1)
+        Nutphai.tintColor = #colorLiteral(red: 0.9607843161, green: 0.7058823705, blue: 0.200000003, alpha: 1)
         //thongbao.text = String(UserDefaults.standard.isLoggedIn())
-        
         tbView.delegate = self
         tbView.dataSource = self
         // bỏ dòng line giữa các cell của tableview
         tbView.separatorStyle = UITableViewCellSeparatorStyle.none
-        
         fetchData()
         
-        
-       navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Sign Out", style: .plain, target: self, action: #selector(handleSignOut))
+    //   navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "menutron"), style: .plain, target: self, action: #selector(handleSignOut))
 
 //        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Menu", style: .plain, target: self, action: #selector(SlideMenu))
     self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
@@ -82,8 +92,8 @@ class Main: UIViewController,UITableViewDelegate,UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        tableView.estimatedRowHeight = 145.0
-        tableView.rowHeight = 400
+     //   tableView.estimatedRowHeight = 400
+        tableView.rowHeight = 390
         
         return tableView.rowHeight
     }
