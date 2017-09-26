@@ -35,16 +35,10 @@ class ViewController: UIViewController,UICollectionViewDelegate,UICollectionView
     func chuyenmanhinh(){
        
         UserDefaults.standard.setIsLoggedIn(value: true)
-        
-        
         let sb = UIStoryboard(name: "Main", bundle: nil)
         let vc = sb.instantiateViewController(withIdentifier: "Duy") as! SWRevealViewController
        // vc.modalTransitionStyle = .partialCurl
        self.present(vc, animated: true, completion: nil)
-   
-     
-  
-        
     }
     
     let cellID = "cellID"
@@ -231,8 +225,6 @@ class ViewController: UIViewController,UICollectionViewDelegate,UICollectionView
             self.view.layoutIfNeeded()
             
         }, completion: nil)
-      
-            
     }
     
     // khi quay thiết bị sang chiều ngang
@@ -242,9 +234,7 @@ class ViewController: UIViewController,UICollectionViewDelegate,UICollectionView
         DispatchQueue.main.async {
             self.collectionView.scrollToItem(at: index, at: .centeredHorizontally, animated: true)
         }
-    
     }
-    
 }
 
 

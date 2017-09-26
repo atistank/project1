@@ -21,7 +21,6 @@ class MenuSlide: UIViewController,UITableViewDelegate,UITableViewDataSource {
         MenuButton(av: "hinh3", text: "đăng xuất"),
     ]
     
-    
     @IBOutlet weak var TableView: UITableView!
     
     
@@ -29,10 +28,8 @@ class MenuSlide: UIViewController,UITableViewDelegate,UITableViewDataSource {
         super.viewDidLoad()
         TableView.delegate = self
         TableView.dataSource = self
-       
     }
-    
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return Mang.count
     }
@@ -45,7 +42,6 @@ class MenuSlide: UIViewController,UITableViewDelegate,UITableViewDataSource {
         return "Dòng " + String(section)
     }
    
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! MenuCusTableViewCell
        
@@ -53,7 +49,5 @@ class MenuSlide: UIViewController,UITableViewDelegate,UITableViewDataSource {
         cell.Img.image = UIImage(named: Mang[indexPath.row].Avatar)
         
         return cell
-    }
-    
-    
+    }   
 }

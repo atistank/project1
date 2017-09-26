@@ -17,5 +17,4 @@ class MenuButton{
         self.Avatar = av
         self.labelText = text
     }
-
 }

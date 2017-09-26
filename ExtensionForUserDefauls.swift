@@ -20,5 +20,4 @@ extension UserDefaults {
     func isLoggedIn() -> Bool {
         return bool(forKey: UserDefaultsKeys.isLoggedIn.rawValue)
     }
-    
 }
