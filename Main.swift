@@ -18,9 +18,59 @@ class Main: UIViewController,UITableViewDelegate,UITableViewDataSource {
   //  @IBOutlet weak var Nut: UIBarButtonItem!
     var menuStatus: Bool = false
     private var rssItems: [RSSItem]?
-   
-    override func viewDidLoad() {
+    var cellCache: [RSSItem] = []
+    var imagecache: [UIImage] = []
+    var sourceImage: [String] = [
+        "https://anhdephd.com/wp-content/uploads/2017/04/hinh-nen-thien-nhien-phong-canh-dep-nhat.jpg",
+        "https://anhdephd.com/wp-content/uploads/2017/04/Anh-girl-xinh-han-quoc-heo-yun-mi-dep-sexy-660x440.jpg",
+        "https://anhdephd.com/wp-content/uploads/2017/04/Hinh-nen-i-Love-You-dep-nhat-16-768x480.jpg",
+        "https://anhdephd.com/wp-content/uploads/2017/04/hinh-nen-thien-nhien-phong-canh-dep-nhat.jpg",
+        "https://anhdephd.com/wp-content/uploads/2017/04/Anh-girl-xinh-han-quoc-heo-yun-mi-dep-sexy-660x440.jpg",
+        "https://anhdephd.com/wp-content/uploads/2017/04/Hinh-nen-i-Love-You-dep-nhat-16-768x480.jpg",
+        "https://anhdephd.com/wp-content/uploads/2017/04/hinh-nen-thien-nhien-phong-canh-dep-nhat.jpg",
+        "https://anhdephd.com/wp-content/uploads/2017/04/Anh-girl-xinh-han-quoc-heo-yun-mi-dep-sexy-660x440.jpg",
+        "https://anhdephd.com/wp-content/uploads/2017/04/Hinh-nen-i-Love-You-dep-nhat-16-768x480.jpg",
+         "https://anhdephd.com/wp-content/uploads/2017/04/Hinh-nen-i-Love-You-dep-nhat-16-768x480.jpg",
+          "https://anhdephd.com/wp-content/uploads/2017/04/Hinh-nen-i-Love-You-dep-nhat-16-768x480.jpg"
+    ]
+    
+    
+    func loadAnh(){
+        for (index,imgString) in sourceImage.enumerated() {
+            imagecache.append(#imageLiteral(resourceName: "defaulte"))
+            guard let u = URL(string: imgString) else {return}
+            let req = URLRequest(url: u)
+            URLSession.shared.dataTask(with: req, completionHandler: { (dulieu, repond, error) in
+                guard let dulieu = dulieu else {return}
+                DispatchQueue.main.async
+                    {
+                        self.imagecache[index] = UIImage(data: dulieu)!
+                     //   self.tbView.reloadData()
+                    }
+            }).resume()
+        }
+    }
+    
+    private func fetchData(){
+        
+             let feedParser = FeedParser()
+            feedParser.parseFeed(url: "https://toidicodedao.com/feed/") { (rssItems) in
+                
+                self.rssItems = rssItems
+                OperationQueue.main.addOperation {
+                    // reload phải trong luồng chính
+                    
+                    self.tbView.reloadSections(IndexSet(integer: 0), with: .left) // reload section tableview
+                }
+            }
+        
+    }
+    
+    
+      override func viewDidLoad() {
         super.viewDidLoad()
+        loadAnh()
+        
         Nut.target = SWRevealViewController()
         Nut.action = #selector(SWRevealViewController().revealToggle(_:))
         Nutphai.target = self
@@ -33,18 +83,14 @@ class Main: UIViewController,UITableViewDelegate,UITableViewDataSource {
         // bỏ dòng line giữa các cell của tableview
         tbView.separatorStyle = UITableViewCellSeparatorStyle.none
     
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-        self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.hidesBarsOnSwipe = true
+//        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+//        self.navigationController?.navigationBar.shadowImage = UIImage()
+//        self.navigationController?.navigationBar.isTranslucent = true
    //     self.navigationController?.view.backgroundColor = UIColor.clear
       
      navigationItem.title = "Trang Chủ"
-        
         fetchData()
-        
-    //   navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "menutron"), style: .plain, target: self, action: #selector(handleSignOut))
-
-//        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Menu", style: .plain, target: self, action: #selector(SlideMenu))
     self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
 
     }
@@ -53,18 +99,8 @@ class Main: UIViewController,UITableViewDelegate,UITableViewDataSource {
         UIApplication.shared.statusBarStyle = .lightContent
     }
   
-    private func fetchData(){
-        let feedParser = FeedParser()
-        feedParser.parseFeed(url: "https://toidicodedao.com/feed/") { (rssItems) in
-            self.rssItems = rssItems
-           
-            OperationQueue.main.addOperation {
-                // reload phải trong luồng chính
-                  self.tbView.reloadSections(IndexSet(integer: 0), with: .left) // reload section tableview
-            }
-        }   
-    }
-    func handleSignOut() {
+   
+    @objc func handleSignOut() {
         print("thanh menu")
         UserDefaults.standard.setIsLoggedIn(value: false)
         
@@ -84,11 +120,21 @@ class Main: UIViewController,UITableViewDelegate,UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cellMain", for: indexPath) as! MainTableViewCell
         
-        if let item = rssItems?[indexPath.item]{
-            cell.item = item
+           let cell = tableView.dequeueReusableCell(withIdentifier: "cellMain", for: indexPath) as! MainTableViewCell
+        DispatchQueue(label: "haha").async {
+            if let item =  self.rssItems?[indexPath.item]{
+                DispatchQueue.main.async {
+                     cell.item = item
+                 
+                }
+               
+            }
+          
+           
         }
+       cell.imAvatar.image = self.imagecache[indexPath.row]
+      // tbView.reloadData()
         return cell
     }
     

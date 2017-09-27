@@ -27,7 +27,7 @@ class LoginCell: UICollectionViewCell{
     }()
     
     var delegateChuyenManHinh: ChuyenManHinhLoginDelegate?
-    func chuyenManHinhMain(){
+    @objc func chuyenManHinhMain(){
         delegateChuyenManHinh?.chuyenmanhinh()
     }
     

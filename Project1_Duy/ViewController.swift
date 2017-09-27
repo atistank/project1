@@ -79,7 +79,7 @@ class ViewController: UIViewController,UICollectionViewDelegate,UICollectionView
         return skip
     }()
     
-    func Hanhdong(){
+    @objc func Hanhdong(){
         // nếu lướt tới trang Star cuối thì nút next ko có tác dụng
         if DieuKhienTrang.currentPage == pages.count
         {
@@ -105,7 +105,7 @@ class ViewController: UIViewController,UICollectionViewDelegate,UICollectionView
         DieuKhienTrang.currentPage += 1
     }
     
-    func HanhdongSkip(){
+    @objc func HanhdongSkip(){
         collectionView.scrollToItem(at: IndexPath(item: pages.count , section: 0), at: .centeredHorizontally, animated: true)
         thongtinAutolayoutForButton()
         UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseOut, animations:

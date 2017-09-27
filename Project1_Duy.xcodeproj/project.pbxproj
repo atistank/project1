@@ -10,6 +10,7 @@
 		E10437801F6529F400582385 /* NavigationCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = E104377F1F6529F400582385 /* NavigationCustom.swift */; };
 		E10437821F652A6800582385 /* ManHinhHomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10437811F652A6800582385 /* ManHinhHomeController.swift */; };
 		E10437861F652C6600582385 /* ExtensionForUserDefauls.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10437851F652C6600582385 /* ExtensionForUserDefauls.swift */; };
+		E12F3D661F7B89E70076F377 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12F3D651F7B89E70076F377 /* MainTableViewCell.swift */; };
 		E13A8B331F617EA8002B32E4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13A8B321F617EA8002B32E4 /* AppDelegate.swift */; };
 		E13A8B351F617EA8002B32E4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13A8B341F617EA8002B32E4 /* ViewController.swift */; };
 		E13A8B381F617EA8002B32E4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E13A8B361F617EA8002B32E4 /* Main.storyboard */; };
@@ -28,7 +29,7 @@
 		E1C239761F6A5862000ECA09 /* MenuCusTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C239751F6A5862000ECA09 /* MenuCusTableViewCell.swift */; };
 		E1C239781F6A5B9D000ECA09 /* MenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C239771F6A5B9D000ECA09 /* MenuButton.swift */; };
 		E1F2B3871F6CE53E00646F8F /* XMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F2B3861F6CE53E00646F8F /* XMLParser.swift */; };
-		E1F2B3891F6CE67A00646F8F /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F2B3881F6CE67A00646F8F /* MainTableViewCell.swift */; };
+		E1F2B3891F6CE67A00646F8F /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F2B3881F6CE67A00646F8F /* MenuTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		E104377F1F6529F400582385 /* NavigationCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationCustom.swift; sourceTree = "<group>"; };
 		E10437811F652A6800582385 /* ManHinhHomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManHinhHomeController.swift; sourceTree = "<group>"; };
 		E10437851F652C6600582385 /* ExtensionForUserDefauls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionForUserDefauls.swift; sourceTree = "<group>"; };
+		E12F3D651F7B89E70076F377 /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
 		E13A8B2F1F617EA8002B32E4 /* Project1_Duy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Project1_Duy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E13A8B321F617EA8002B32E4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E13A8B341F617EA8002B32E4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = Project1_Duy/ViewController.swift; sourceTree = "<group>"; };
@@ -78,7 +80,7 @@
 		E1C239751F6A5862000ECA09 /* MenuCusTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCusTableViewCell.swift; sourceTree = "<group>"; };
 		E1C239771F6A5B9D000ECA09 /* MenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuButton.swift; sourceTree = "<group>"; };
 		E1F2B3861F6CE53E00646F8F /* XMLParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XMLParser.swift; sourceTree = "<group>"; };
-		E1F2B3881F6CE67A00646F8F /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
+		E1F2B3881F6CE67A00646F8F /* MenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,7 +183,8 @@
 				E145D00E1F624F9E008990B4 /* Extension.swift */,
 				E10437851F652C6600582385 /* ExtensionForUserDefauls.swift */,
 				E1C239751F6A5862000ECA09 /* MenuCusTableViewCell.swift */,
-				E1F2B3881F6CE67A00646F8F /* MainTableViewCell.swift */,
+				E1F2B3881F6CE67A00646F8F /* MenuTableViewCell.swift */,
+				E12F3D651F7B89E70076F377 /* MainTableViewCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -272,11 +275,13 @@
 					};
 					E13A8B451F617EA8002B32E4 = {
 						CreatedOnToolsVersion = 8.3.2;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Manual;
 						TestTargetID = E13A8B2E1F617EA8002B32E4;
 					};
 					E13A8B501F617EA8002B32E4 = {
 						CreatedOnToolsVersion = 8.3.2;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Manual;
 						TestTargetID = E13A8B2E1F617EA8002B32E4;
 					};
@@ -340,10 +345,11 @@
 				E13A8B3B1F617EA8002B32E4 /* Project1_Duy.xcdatamodeld in Sources */,
 				E184032C1F619B9C00570A74 /* Trang.swift in Sources */,
 				E10437861F652C6600582385 /* ExtensionForUserDefauls.swift in Sources */,
-				E1F2B3891F6CE67A00646F8F /* MainTableViewCell.swift in Sources */,
+				E1F2B3891F6CE67A00646F8F /* MenuTableViewCell.swift in Sources */,
 				E145D0131F63B387008990B4 /* Main.swift in Sources */,
 				E1C239761F6A5862000ECA09 /* MenuCusTableViewCell.swift in Sources */,
 				E1F2B3871F6CE53E00646F8F /* XMLParser.swift in Sources */,
+				E12F3D661F7B89E70076F377 /* MainTableViewCell.swift in Sources */,
 				E13A8B351F617EA8002B32E4 /* ViewController.swift in Sources */,
 				E145D0111F63A635008990B4 /* ChaoMungCell.swift in Sources */,
 				E145D00F1F624F9E008990B4 /* Extension.swift in Sources */,
@@ -516,7 +522,8 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Project1_Duy/Project1_Duy-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -535,7 +542,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Project1_Duy/Project1_Duy-Bridging-Header.h";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
@@ -551,7 +559,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "AGU.Project1-DuyTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Project1_Duy.app/Project1_Duy";
 			};
 			name = Debug;
@@ -568,7 +577,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "AGU.Project1-DuyTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Project1_Duy.app/Project1_Duy";
 			};
 			name = Release;
@@ -585,7 +595,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "AGU.Project1-DuyUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_TARGET_NAME = Project1_Duy;
 			};
 			name = Debug;
@@ -602,7 +613,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "AGU.Project1-DuyUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_TARGET_NAME = Project1_Duy;
 			};
 			name = Release;

@@ -17,14 +17,14 @@ class Pagecell: UICollectionViewCell {
             
             let Mau = UIColor(white: 0.2, alpha: 1) // Màu color
             
-            let attributedText = NSMutableAttributedString(string: (page?.title)!, attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 18, weight: UIFontWeightMedium), NSForegroundColorAttributeName: Mau])
+            let attributedText = NSMutableAttributedString(string: (page?.title)!, attributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 18, weight: UIFont.Weight.medium), NSAttributedStringKey.foregroundColor: Mau])
             
-            attributedText.append(NSAttributedString(string: "\n\n\(page!.Huongdan)", attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 14),NSForegroundColorAttributeName: Mau]))
+            attributedText.append(NSAttributedString(string: "\n\n\(page!.Huongdan)", attributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 14),NSAttributedStringKey.foregroundColor: Mau]))
             
             let VanBanStyle = NSMutableParagraphStyle()
             VanBanStyle.alignment = .center
             let DoDaiText = attributedText.string.characters.count
-            attributedText.addAttribute(NSParagraphStyleAttributeName, value: VanBanStyle, range: NSRange(location: 0, length: DoDaiText)  )
+            attributedText.addAttribute(NSAttributedStringKey.paragraphStyle, value: VanBanStyle, range: NSRange(location: 0, length: DoDaiText)  )
       //      MoTa.text = page?.title + "\n\n" + page?.Huongdan
             MoTa.attributedText = attributedText
         }

@@ -31,7 +31,7 @@ class MainNavigationController: UINavigationController {
         return UserDefaults.standard.isLoggedIn()
     }
     
-    func showLoginController() {
+    @objc func showLoginController() {
         // nếu đã logout thì trở về viewcontroller để đăng nhập lại
         let loginController = ViewController()
         present(loginController, animated: true, completion: {

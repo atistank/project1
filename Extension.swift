@@ -56,23 +56,22 @@ func anchor(_ top: NSLayoutYAxisAnchor? = nil, left: NSLayoutXAxisAnchor? = nil,
 }
 
 extension String {
-    
-    
     var html2AttributedString: NSAttributedString? {
-        guard
-            let data = data(using: String.Encoding.utf8)
-            else { return nil }
         do {
-            return try NSAttributedString(data: data, options: [NSDocumentTypeDocumentAttribute:NSHTMLTextDocumentType,NSCharacterEncodingDocumentAttribute:String.Encoding.utf8.rawValue], documentAttributes: nil)
-        } catch let error as NSError {
-            print(error.localizedDescription)
-            return  nil
+            return try NSAttributedString(data: Data(utf8),
+                                          options: [.documentType: NSAttributedString.DocumentType.html,
+                                                    .characterEncoding: String.Encoding.utf8.rawValue],
+                                          documentAttributes: nil)
+        } catch {
+            print("error: ", error)
+            return nil
         }
     }
     var html2String: String {
         return html2AttributedString?.string ?? ""
     }
 }
+
 
 extension UIView
 {
