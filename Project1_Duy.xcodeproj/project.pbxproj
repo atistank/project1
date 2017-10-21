@@ -22,6 +22,7 @@
 		E145D00F1F624F9E008990B4 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E145D00E1F624F9E008990B4 /* Extension.swift */; };
 		E145D0111F63A635008990B4 /* ChaoMungCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E145D0101F63A635008990B4 /* ChaoMungCell.swift */; };
 		E145D0131F63B387008990B4 /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = E145D0121F63B387008990B4 /* Main.swift */; };
+		E1492B841F9A4044009AF557 /* webcontroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1492B831F9A4044009AF557 /* webcontroller.swift */; };
 		E184032C1F619B9C00570A74 /* Trang.swift in Sources */ = {isa = PBXBuildFile; fileRef = E184032B1F619B9C00570A74 /* Trang.swift */; };
 		E1B7048D1F61883B0084D0E9 /* PageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B7048C1F61883B0084D0E9 /* PageCell.swift */; };
 		E1C239701F6A33E6000ECA09 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1C2396F1F6A33E6000ECA09 /* SWRevealViewController.m */; };
@@ -71,6 +72,7 @@
 		E145D00E1F624F9E008990B4 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		E145D0101F63A635008990B4 /* ChaoMungCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChaoMungCell.swift; sourceTree = "<group>"; };
 		E145D0121F63B387008990B4 /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
+		E1492B831F9A4044009AF557 /* webcontroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = webcontroller.swift; sourceTree = "<group>"; };
 		E184032B1F619B9C00570A74 /* Trang.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trang.swift; sourceTree = "<group>"; };
 		E1B7048C1F61883B0084D0E9 /* PageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PageCell.swift; path = Project1_Duy/PageCell.swift; sourceTree = "<group>"; };
 		E1C2396D1F6A33E5000ECA09 /* Project1_Duy-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Project1_Duy-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 				E184032B1F619B9C00570A74 /* Trang.swift */,
 				E1C239771F6A5B9D000ECA09 /* MenuButton.swift */,
 				E1F2B3861F6CE53E00646F8F /* XMLParser.swift */,
+				E1F2B3881F6CE67A00646F8F /* MenuTableViewCell.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -183,7 +186,6 @@
 				E145D00E1F624F9E008990B4 /* Extension.swift */,
 				E10437851F652C6600582385 /* ExtensionForUserDefauls.swift */,
 				E1C239751F6A5862000ECA09 /* MenuCusTableViewCell.swift */,
-				E1F2B3881F6CE67A00646F8F /* MenuTableViewCell.swift */,
 				E12F3D651F7B89E70076F377 /* MainTableViewCell.swift */,
 			);
 			name = View;
@@ -197,6 +199,7 @@
 				E10437811F652A6800582385 /* ManHinhHomeController.swift */,
 				E145D0121F63B387008990B4 /* Main.swift */,
 				E1C239711F6A3C16000ECA09 /* MenuSlide.swift */,
+				E1492B831F9A4044009AF557 /* webcontroller.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -344,6 +347,7 @@
 				E1C239781F6A5B9D000ECA09 /* MenuButton.swift in Sources */,
 				E13A8B3B1F617EA8002B32E4 /* Project1_Duy.xcdatamodeld in Sources */,
 				E184032C1F619B9C00570A74 /* Trang.swift in Sources */,
+				E1492B841F9A4044009AF557 /* webcontroller.swift in Sources */,
 				E10437861F652C6600582385 /* ExtensionForUserDefauls.swift in Sources */,
 				E1F2B3891F6CE67A00646F8F /* MenuTableViewCell.swift in Sources */,
 				E145D0131F63B387008990B4 /* Main.swift in Sources */,
