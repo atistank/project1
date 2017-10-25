@@ -8,7 +8,35 @@
 
 import UIKit
 
+extension UIButton{
+    
+    func buttonGradient(color1: UIColor, color2: UIColor){
+        let but = CAGradientLayer()
+        but.frame = bounds
+        but.colors = [color1.cgColor,color2.cgColor]
+        but.locations = [0.0,1.0]
+        but.startPoint =  CGPoint(x: 0.0, y: 0.5)
+        but.endPoint = CGPoint(x: 1.0, y: 0.5)
+        layer.insertSublayer(but, at: 0)
+        
+    }
+    
+    func buttonGradient2(color1: UIColor, color2: UIColor,color3: UIColor, color4: UIColor){
+        let but = CAGradientLayer()
+        but.frame = bounds
+        but.colors = [color1.cgColor,color2.cgColor,color3.cgColor,color4.cgColor]
+        but.locations = [0.0,0.2,0.4,1.0]
+        but.startPoint =  CGPoint(x: 1.0, y: 1.0)
+        but.endPoint = CGPoint(x: 0.0, y: 0.0)
+        layer.insertSublayer(but, at: 0)
+        
+    }
+}
+
+
 extension UIView{
+    
+  
     
 func anchorToTop(_ top: NSLayoutYAxisAnchor? = nil, left: NSLayoutXAxisAnchor? = nil, bottom: NSLayoutYAxisAnchor? = nil, right: NSLayoutXAxisAnchor? = nil) {
     

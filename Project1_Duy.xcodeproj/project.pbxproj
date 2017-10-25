@@ -29,6 +29,7 @@
 		E1C239721F6A3C16000ECA09 /* MenuSlide.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C239711F6A3C16000ECA09 /* MenuSlide.swift */; };
 		E1C239761F6A5862000ECA09 /* MenuCusTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C239751F6A5862000ECA09 /* MenuCusTableViewCell.swift */; };
 		E1C239781F6A5B9D000ECA09 /* MenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C239771F6A5B9D000ECA09 /* MenuButton.swift */; };
+		E1CA48901F9B45D900716946 /* ManHinh2controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CA488F1F9B45D900716946 /* ManHinh2controller.swift */; };
 		E1F2B3871F6CE53E00646F8F /* XMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F2B3861F6CE53E00646F8F /* XMLParser.swift */; };
 		E1F2B3891F6CE67A00646F8F /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F2B3881F6CE67A00646F8F /* MenuTableViewCell.swift */; };
 /* End PBXBuildFile section */
@@ -81,6 +82,7 @@
 		E1C239711F6A3C16000ECA09 /* MenuSlide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuSlide.swift; sourceTree = "<group>"; };
 		E1C239751F6A5862000ECA09 /* MenuCusTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCusTableViewCell.swift; sourceTree = "<group>"; };
 		E1C239771F6A5B9D000ECA09 /* MenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuButton.swift; sourceTree = "<group>"; };
+		E1CA488F1F9B45D900716946 /* ManHinh2controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManHinh2controller.swift; sourceTree = "<group>"; };
 		E1F2B3861F6CE53E00646F8F /* XMLParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XMLParser.swift; sourceTree = "<group>"; };
 		E1F2B3881F6CE67A00646F8F /* MenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -170,7 +172,6 @@
 			children = (
 				E184032B1F619B9C00570A74 /* Trang.swift */,
 				E1C239771F6A5B9D000ECA09 /* MenuButton.swift */,
-				E1F2B3861F6CE53E00646F8F /* XMLParser.swift */,
 				E1F2B3881F6CE67A00646F8F /* MenuTableViewCell.swift */,
 			);
 			name = Model;
@@ -194,12 +195,14 @@
 		E184032A1F619B7B00570A74 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				E1F2B3861F6CE53E00646F8F /* XMLParser.swift */,
 				E13A8B341F617EA8002B32E4 /* ViewController.swift */,
 				E104377F1F6529F400582385 /* NavigationCustom.swift */,
 				E10437811F652A6800582385 /* ManHinhHomeController.swift */,
 				E145D0121F63B387008990B4 /* Main.swift */,
 				E1C239711F6A3C16000ECA09 /* MenuSlide.swift */,
 				E1492B831F9A4044009AF557 /* webcontroller.swift */,
+				E1CA488F1F9B45D900716946 /* ManHinh2controller.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -358,6 +361,7 @@
 				E145D0111F63A635008990B4 /* ChaoMungCell.swift in Sources */,
 				E145D00F1F624F9E008990B4 /* Extension.swift in Sources */,
 				E10437801F6529F400582385 /* NavigationCustom.swift in Sources */,
+				E1CA48901F9B45D900716946 /* ManHinh2controller.swift in Sources */,
 				E1B7048D1F61883B0084D0E9 /* PageCell.swift in Sources */,
 				E10437821F652A6800582385 /* ManHinhHomeController.swift in Sources */,
 				E13A8B331F617EA8002B32E4 /* AppDelegate.swift in Sources */,

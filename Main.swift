@@ -26,23 +26,10 @@ class Main: UIViewController,UITableViewDelegate,UITableViewDataSource {
     @IBOutlet weak var tbView: UITableView!
   //  @IBOutlet weak var Nut: UIBarButtonItem!
     var menuStatus: Bool = false
-    private var rssItems: [RSSItem]? = []
+    private var rssItemsSuorce: [RSSItem]? = []
  
     var soTrang: Int = 1 // số trang
-    var imagecache: [UIImage] = []
-    var sourceImage: [String] = [
-        "https://anhdephd.com/wp-content/uploads/2017/04/hinh-nen-thien-nhien-phong-canh-dep-nhat.jpg",
-        "https://anhdephd.com/wp-content/uploads/2017/04/Anh-girl-xinh-han-quoc-heo-yun-mi-dep-sexy-660x440.jpg",
-        "https://anhdephd.com/wp-content/uploads/2017/04/Hinh-nen-i-Love-You-dep-nhat-16-768x480.jpg",
-        "https://anhdephd.com/wp-content/uploads/2017/04/hinh-nen-thien-nhien-phong-canh-dep-nhat.jpg",
-        "https://anhdephd.com/wp-content/uploads/2017/04/Anh-girl-xinh-han-quoc-heo-yun-mi-dep-sexy-660x440.jpg",
-        "https://anhdephd.com/wp-content/uploads/2017/04/Hinh-nen-i-Love-You-dep-nhat-16-768x480.jpg",
-        "https://anhdephd.com/wp-content/uploads/2017/04/hinh-nen-thien-nhien-phong-canh-dep-nhat.jpg",
-        "https://anhdephd.com/wp-content/uploads/2017/04/Anh-girl-xinh-han-quoc-heo-yun-mi-dep-sexy-660x440.jpg",
-        "https://anhdephd.com/wp-content/uploads/2017/04/Hinh-nen-i-Love-You-dep-nhat-16-768x480.jpg",
-         "https://anhdephd.com/wp-content/uploads/2017/04/Hinh-nen-i-Love-You-dep-nhat-16-768x480.jpg",
-          "https://anhdephd.com/wp-content/uploads/2017/04/Hinh-nen-i-Love-You-dep-nhat-16-768x480.jpg"
-    ]
+  
     func setThongsoUI() {
         Nut.target = SWRevealViewController()
         Nut.action = #selector(SWRevealViewController().revealToggle(_:))
@@ -51,52 +38,27 @@ class Main: UIViewController,UITableViewDelegate,UITableViewDataSource {
         Nut.tintColor = #colorLiteral(red: 0.9999018312, green: 1, blue: 0.9998798966, alpha: 1)
         Nutphai.tintColor = #colorLiteral(red: 0.9999018312, green: 1, blue: 0.9998798966, alpha: 1)
         navigationItem.title = "Trang Chủ"
-       navigationController?.hidesBarsOnSwipe = true
-        navigationController?.hidesBarsOnTap = true
+//       navigationController?.hidesBarsOnSwipe = true
+//        navigationController?.hidesBarsOnTap = true
         
     }
     
-    func loadMore(index: Int){
-        let feedParser = FeedParser()
-        feedParser.parseFeed(url: "https://toidicodedao.com/feed?paged=\(index)") { (rssItems) in
-            self.rssItems?.append(contentsOf: rssItems)
-            OperationQueue.main.addOperation {
-                // reload phải trong luồng chính
-               self.tbView.reloadData()
-            
-               // self.tbView.reloadSections(IndexSet(integer: 0), with: .left) // reload section tableview
-            }
-        }
-        
-    }
+
     
-    func loadAnh(){
-        for (index,imgString) in sourceImage.enumerated() {
-            imagecache.append(#imageLiteral(resourceName: "defaulte"))
-            guard let u = URL(string: imgString) else {return}
-            let req = URLRequest(url: u)
-            URLSession.shared.dataTask(with: req, completionHandler: { (dulieu, repond, error) in
-                guard let dulieu = dulieu else {return}
-                DispatchQueue.main.async
-                    {
-                        self.imagecache[index] = UIImage(data: dulieu)!
-                     //   self.tbView.reloadData()
-                    }
-            }).resume()
-        }
-    }
-    
-    private func fetchData(){
+    private func fetchData(index: Int){
       
         DispatchQueue.global().async {
            let feedParser = FeedParser()
-            feedParser.parseFeed(url: "https://toidicodedao.com/feed/") { (rssItems) in
-               
-                self.rssItems = rssItems
-                OperationQueue.main.addOperation {
-                    // reload phải trong luồng chính
-                    self.tbView.reloadSections(IndexSet(integer: 0), with: .left) // reload section tableview
+            feedParser.parseFeed(url: "https://toidicodedao.com/feed/?paged=\(index)") { (data) in
+                self.rssItemsSuorce?.append(contentsOf:  data)
+                
+                DispatchQueue.main.async {
+                   self.tbView.reloadData()
                 }
+//                OperationQueue.main.addOperation {
+//                    // reload phải trong luồng chính
+//                    self.tbView.reloadSections(IndexSet(integer: 0), with: .left) // reload section tableview
+//                }
             }
         }
         
@@ -106,7 +68,6 @@ class Main: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
       override func viewDidLoad() {
         super.viewDidLoad()
-        loadAnh()
         setThongsoUI()
         tbView.delegate = self
         tbView.dataSource = self
@@ -114,7 +75,7 @@ class Main: UIViewController,UITableViewDelegate,UITableViewDataSource {
        
         // bỏ dòng line giữa các cell của tableview
         tbView.separatorStyle = UITableViewCellSeparatorStyle.none
-        fetchData()
+        fetchData(index: 1)
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
 
     }
@@ -149,7 +110,7 @@ extension Main{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // nếu ko get dc rsstem thì trả về 0, còn dc thì số cell trả về số mảng
-        guard  let rssItems = rssItems else {
+        guard  let rssItems = rssItemsSuorce else {
             return 0
         }
         return rssItems.count
@@ -159,13 +120,14 @@ extension Main{
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellMain", for: indexPath) as! MainTableViewCell
         cell.selectionStyle = .none
-        DispatchQueue(label: "haha").async {
-            if let item =  self.rssItems?[indexPath.item]{
-                DispatchQueue.main.async {
-                    cell.item = item
-                }
-            }
+        
+        guard let asd = self.rssItemsSuorce?[indexPath.row]  else {
+            return cell
         }
+        
+       cell.item = asd
+        
+      
         return cell
     }
     
@@ -186,15 +148,12 @@ extension Main{
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let manhinhNoiDung = segue.destination as! webcontroller
-        manhinhNoiDung.htmlNoiDung = self.rssItems![indexCuaSugeu].link
+        manhinhNoiDung.htmlNoiDung = self.rssItemsSuorce![indexCuaSugeu].link!
           self.hidesBottomBarWhenPushed = true
         UIView.animate(withDuration: 1, animations: {
              self.tabBarController?.tabBar.isHidden = true
         }, completion: nil)
-       
-       
-        
-        
+
         // 3 dòng dưới đây dùng để paste nội dung content đã parsing, dùng link web thì khỏi dùng.
 //        var TheInDam1 = "<h3><strong>" + String(describing: self.rssItems![indexCuaSugeu].title) + "</strong></h3>"
 //        manhinhNoiDung.htmlNoiDung = TheInDam1
@@ -202,9 +161,9 @@ extension Main{
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if indexPath.row == (rssItems?.count)! - 1 {
+        if indexPath.row == (rssItemsSuorce?.count)! - 1 {
             soTrang += 1
-           loadMore(index: soTrang)
+           fetchData(index: soTrang)
            
           }
         }
