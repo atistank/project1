@@ -133,7 +133,7 @@ extension Main{
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         //   tableView.estimatedRowHeight = 400
-        tableView.rowHeight = 395
+        tableView.rowHeight = 387
         
         return tableView.rowHeight
     }

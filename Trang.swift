@@ -12,4 +12,5 @@ struct Trang {
     let title: String
     let Huongdan: String
     let imageName: String
+    let background: String
 }

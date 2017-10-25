@@ -51,7 +51,7 @@ class LoginCell: UICollectionViewCell{
         let st = UIButton(type: .system)
         st.setTitle("Bắt Đầu Nào", for: .normal)
         st.setTitleColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
-        st.backgroundColor = #colorLiteral(red: 0.3993158042, green: 0.6998986006, blue: 0.971067965, alpha: 1)
+        st.backgroundColor = #colorLiteral(red: 0.4, green: 0.6980392157, blue: 0.9725490196, alpha: 1)
         st.layer.cornerRadius = 27
         st.clipsToBounds = true
       

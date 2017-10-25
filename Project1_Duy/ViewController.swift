@@ -45,16 +45,16 @@ class ViewController: UIViewController,UICollectionViewDelegate,UICollectionView
     let MainCellID = "MainCellID"
     
     let pages: [Trang] = {
-         let Trang1 = Trang(title: "Huong Dan Su Dung", Huongdan: "Nghe Nhac mien phi tu itunes rat hay va mien phi nua.", imageName: "page1")
-         let Trang2 = Trang(title: "Nghe Nhac", Huongdan: "Ban co the mien tu tren mang ve roi tu nghe minh enh.", imageName: "page2")
-         let Trang3 = Trang(title: "Dang ky thanh vien", Huongdan: "Dang ky thanh vien de co them nhieu quyen loi va chuc nang, nhanh tay len.", imageName: "page3")
+         let Trang1 = Trang(title: "Huong Dan Su Dung", Huongdan: "Nghe Nhac mien phi tu itunes rat hay va mien phi nua.", imageName: "",background: "intro3")
+        let Trang2 = Trang(title: "Nghe Nhac", Huongdan: "Ban co the mien tu tren mang ve roi tu nghe minh enh.Ban co the mien tu tren mang ve roi tu nghe minh enh", imageName: "logo1", background: "trang")
+        let Trang3 = Trang(title: "Dang ky thanh vien", Huongdan: "Dang ky thanh vien de co them nhieu quyen loi va chuc nang, nhanh tay len.", imageName: "page3", background: "trang")
         return [Trang1,Trang2,Trang3]
     }()
     
     //tạo index cho trang
     lazy var DieuKhienTrang:UIPageControl = {
         let dk = UIPageControl()
-        dk.currentPageIndicatorTintColor = #colorLiteral(red: 1, green: 0.708275497, blue: 0.09586834162, alpha: 1) // màu trang hiện tại
+        dk.currentPageIndicatorTintColor = #colorLiteral(red: 0.2588235438, green: 0.7568627596, blue: 0.9686274529, alpha: 1) // màu trang hiện tại
         dk.pageIndicatorTintColor = .lightGray // màu trang chưa chọn
         
        
@@ -67,14 +67,14 @@ class ViewController: UIViewController,UICollectionViewDelegate,UICollectionView
     lazy var SkipButton: UIButton = {
         let skip = UIButton(type: .system)
         skip.setTitle("Skip", for: .normal)
-        skip.setTitleColor(#colorLiteral(red: 1, green: 0.708275497, blue: 0.09586834162, alpha: 1), for: .normal)
+        skip.setTitleColor(#colorLiteral(red: 0.2588235438, green: 0.7568627596, blue: 0.9686274529, alpha: 1), for: .normal)
         skip.addTarget(self, action: #selector(HanhdongSkip), for: .touchUpInside)
         return skip
     }()
     lazy var NextButton: UIButton = {
         let skip = UIButton(type: .system)
         skip.setTitle("Next", for: .normal)
-        skip.setTitleColor(#colorLiteral(red: 1, green: 0.708275497, blue: 0.09586834162, alpha: 1), for: .normal)
+        skip.setTitleColor(#colorLiteral(red: 0.2588235438, green: 0.7568627596, blue: 0.9686274529, alpha: 1), for: .normal)
         skip.addTarget(self, action: #selector(Hanhdong), for: .touchUpInside)
         return skip
     }()
@@ -134,7 +134,7 @@ class ViewController: UIViewController,UICollectionViewDelegate,UICollectionView
         Dangkycell()
        
         
-     pagecontrolBottomAnchor =   DieuKhienTrang.anchor(nil, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 40)[1]
+     pagecontrolBottomAnchor =   DieuKhienTrang.anchor(nil, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 100, rightConstant: 0, widthConstant: 0, heightConstant: 40)[1]
         
         
      SkipAnchor =   SkipButton.anchor(view.topAnchor, left: view.leftAnchor, bottom: nil, right: nil, topConstant: 16, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 60, heightConstant: 50).first
@@ -216,7 +216,7 @@ class ViewController: UIViewController,UICollectionViewDelegate,UICollectionView
         }
         else
         {
-            pagecontrolBottomAnchor?.constant = 0
+            pagecontrolBottomAnchor?.constant = -100
             SkipAnchor?.constant = 16
             NextAnchor?.constant = 16
             
