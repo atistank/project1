@@ -16,6 +16,10 @@ protocol ChuyenManHinhLoginDelegate {
 
 
 class ViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,ChuyenManHinhLoginDelegate {
+     var dict : [String : AnyObject]!
+
+    
+    
 
     lazy var collectionView: UICollectionView = {
         
@@ -47,7 +51,7 @@ class ViewController: UIViewController,UICollectionViewDelegate,UICollectionView
     let MainCellID = "MainCellID"
     
     let pages: [Trang] = {
-         let Trang1 = Trang(title: "Huong Dan Su Dung", Huongdan: "Nghe Nhac mien phi tu itunes rat hay va mien phi nua.", imageName: "",background: "backgroung1")
+        let Trang1 = Trang(title: "Welcome to DevBlog", Huongdan: "Ứng dụng xem tài liệu trực tuyến dành cho dev, lưu trữ offline và xem mọi lúc mọi nơi, hàng trăm bài viết cập nhật mỗi ngày 😎 ", imageName: "134",background: "backgroung1")
         let Trang2 = Trang(title: "Nghe Nhac", Huongdan: "Ban co the mien tu tren mang ve roi tu nghe minh enh.Ban co the mien tu tren mang ve roi tu nghe minh enh", imageName: "logo1", background: "trang")
         let Trang3 = Trang(title: "Dang ky thanh vien", Huongdan: "Dang ky thanh vien de co them nhieu quyen loi va chuc nang, nhanh tay len.", imageName: "page3", background: "trang")
         return [Trang1,Trang2,Trang3]
@@ -56,7 +60,7 @@ class ViewController: UIViewController,UICollectionViewDelegate,UICollectionView
     //tạo index cho trang
     lazy var DieuKhienTrang:UIPageControl = {
         let dk = UIPageControl()
-        dk.currentPageIndicatorTintColor = #colorLiteral(red: 0.00455649849, green: 0.4850453734, blue: 0.9079882503, alpha: 1) // màu trang hiện tại
+        dk.currentPageIndicatorTintColor = #colorLiteral(red: 0.003921568627, green: 0.4862745098, blue: 0.9098039216, alpha: 1) // màu trang hiện tại
         dk.pageIndicatorTintColor = .lightGray // màu trang chưa chọn
         
        
@@ -69,14 +73,14 @@ class ViewController: UIViewController,UICollectionViewDelegate,UICollectionView
     lazy var SkipButton: UIButton = {
         let skip = UIButton(type: .system)
         skip.setTitle("Skip", for: .normal)
-        skip.setTitleColor(#colorLiteral(red: 0.2588235438, green: 0.7568627596, blue: 0.9686274529, alpha: 1), for: .normal)
+        skip.setTitleColor(#colorLiteral(red: 0.003921568627, green: 0.4862745098, blue: 0.9098039216, alpha: 1), for: .normal)
         skip.addTarget(self, action: #selector(HanhdongSkip), for: .touchUpInside)
         return skip
     }()
     lazy var NextButton: UIButton = {
         let skip = UIButton(type: .system)
         skip.setTitle("Next", for: .normal)
-        skip.setTitleColor(#colorLiteral(red: 0.2588235438, green: 0.7568627596, blue: 0.9686274529, alpha: 1), for: .normal)
+        skip.setTitleColor(#colorLiteral(red: 0.00455649849, green: 0.4850453734, blue: 0.9079882503, alpha: 1), for: .normal)
         skip.addTarget(self, action: #selector(Hanhdong), for: .touchUpInside)
         return skip
     }()
@@ -90,7 +94,7 @@ class ViewController: UIViewController,UICollectionViewDelegate,UICollectionView
         let st = UIButton(type: .system)
         st.setTitle("Log In with Facebook", for: .normal)
         st.setTitleColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
-        st.backgroundColor = #colorLiteral(red: 0.2544160783, green: 0.5259670615, blue: 0.9806722999, alpha: 1)
+        st.backgroundColor = #colorLiteral(red: 0.2549019608, green: 0.5254901961, blue: 0.9803921569, alpha: 1)
         st.layer.cornerRadius = 27
         st.clipsToBounds = true
         st.tintColor = UIColor.white
@@ -100,13 +104,16 @@ class ViewController: UIViewController,UICollectionViewDelegate,UICollectionView
         st.imageView?.contentMode = .center
         st.imageEdgeInsets = UIEdgeInsets(top: 6,left: 0,bottom: 6,right: 14)
         st.titleEdgeInsets = UIEdgeInsets(top: 0,left: 30,bottom: 0,right: 34)
-        st.addTarget(self, action: #selector(login), for: .touchUpInside)
+        st.addTarget(self, action: #selector(loginfacebook), for: .touchUpInside)
         return st
     }()
     
-    func login(){
+    
+   
+    
+    func loginfacebook(){
         let fbLoginManager : FBSDKLoginManager = FBSDKLoginManager()
-        fbLoginManager.logIn(withReadPermissions: ["email"], from: self) { (result, error) -> Void in
+        fbLoginManager.logIn(withReadPermissions: ["public_profile", "email"], from: self) { (result, error) -> Void in
             if (error == nil){
                 let fbloginresult : FBSDKLoginManagerLoginResult = result!
                 print(fbloginresult)
@@ -117,7 +124,29 @@ class ViewController: UIViewController,UICollectionViewDelegate,UICollectionView
                 if(fbloginresult.grantedPermissions.contains("email"))
                 {
                     print("da lay thong tin")
-                    self.chuyenmanhinh()
+                    print(fbloginresult.token.tokenString)
+                    
+                    let fbReq = FBSDKGraphRequest(graphPath: "/me", parameters: ["fields":"name,email,first_name,cover,picture.type(large)"])
+                    fbReq?.start(completionHandler: { (connect, info, err) in
+                        guard let info = info else {return}
+                        print("========================================")
+                        self.dict = info as! [String : AnyObject]
+                       // print(info)
+                        print(self.dict)
+                        let name: String  = (self.dict["name"] as? String)!
+                        let email: String  = (self.dict["email"] as? String)!
+                        let picture:  [String : AnyObject]  = (self.dict["picture"] as?  [String : AnyObject])!
+                        let data:  [String : AnyObject] = (picture["data"] as?  [String : AnyObject]!)!
+                        let url:  String  = (data["url"] as? String)!
+                        print(name)
+                        print(url)
+                        
+                    })
+                    
+                    
+                   
+                    //
+                    //me?fields=name,email,picture.type(large),cover
                 }
             }
         }
@@ -178,6 +207,9 @@ class ViewController: UIViewController,UICollectionViewDelegate,UICollectionView
         view.addSubview(SkipButton)
         view.addSubview(NextButton)
         view.addSubview(StarButton)
+        
+        
+        
           // su dung auto layout cho view
         collectionView.anchorToTop(view.topAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor)
         

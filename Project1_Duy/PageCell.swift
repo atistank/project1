@@ -25,7 +25,7 @@ class Pagecell: UICollectionViewCell {
             let Mau = UIColor(white: 0.2, alpha: 1) // Màu color title
             
             
-            let attributedText = NSMutableAttributedString(string: (page?.title)!, attributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 22, weight: UIFont.Weight.medium), NSAttributedStringKey.foregroundColor: #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)])
+            let attributedText = NSMutableAttributedString(string: (page?.title)!, attributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 22, weight: UIFont.Weight.medium), NSAttributedStringKey.foregroundColor: #colorLiteral(red: 0.003921568627, green: 0.4862745098, blue: 0.9098039216, alpha: 1)])
             
             attributedText.append(NSAttributedString(string: "\n\n\(page!.Huongdan)", attributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 15),NSAttributedStringKey.foregroundColor: #colorLiteral(red: 0.5741485357, green: 0.5741624236, blue: 0.574154973, alpha: 1)]))
             
@@ -48,6 +48,7 @@ class Pagecell: UICollectionViewCell {
         Hinh.contentMode = .scaleAspectFit // giu nguyen ty le hinh
         Hinh.backgroundColor = .clear
         Hinh.image = #imageLiteral(resourceName: "page1")
+        
         Hinh.clipsToBounds = true
         return Hinh
     }()
@@ -65,7 +66,7 @@ class Pagecell: UICollectionViewCell {
         let textView = UITextView()
         textView.text = "Huong dan su dung app"
         // để text cách Hình 1 khoảng trắng 10
-        textView.contentInset = UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0)
+        textView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         textView.backgroundColor = .clear
         textView.textColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
         textView.isEditable = false
@@ -89,7 +90,7 @@ class Pagecell: UICollectionViewCell {
        background.anchorToTop(topAnchor, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor)
 //        background.anchor(topAnchor, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 0)
 //
-       HinhHuongDan.anchor(background.topAnchor, left: background.leftAnchor, bottom: MoTa.topAnchor, right: background.rightAnchor, topConstant: 90, leftConstant: 30, bottomConstant: 30, rightConstant: 30, widthConstant: 0, heightConstant: 0)
+       HinhHuongDan.anchor(background.topAnchor, left: background.leftAnchor, bottom: MoTa.topAnchor, right: background.rightAnchor, topConstant: 200, leftConstant: 30, bottomConstant: 0, rightConstant: 30, widthConstant: 0, heightConstant: 0)
         
   //      MoTa.anchorToTop(nil, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor)
         

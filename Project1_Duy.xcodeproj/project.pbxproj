@@ -10,6 +10,7 @@
 		4AE088F1ED810B03CAF56B62 /* Pods_Project1_DuyUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB8080472CA7D30F6BACA283 /* Pods_Project1_DuyUITests.framework */; };
 		98FD88F0EF11DADE31FD0568 /* Pods_Project1_Duy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75ED4F7726DFF64C3C83224A /* Pods_Project1_Duy.framework */; };
 		C5F0C3DED43341B994ABFBBE /* Pods_Project1_DuyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02B115872BD261466FA9C408 /* Pods_Project1_DuyTests.framework */; };
+		E10212831FA1D23C00450C9F /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10212821FA1D23C00450C9F /* UserProfile.swift */; };
 		E10437801F6529F400582385 /* NavigationCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = E104377F1F6529F400582385 /* NavigationCustom.swift */; };
 		E10437821F652A6800582385 /* ManHinhHomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10437811F652A6800582385 /* ManHinhHomeController.swift */; };
 		E10437861F652C6600582385 /* ExtensionForUserDefauls.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10437851F652C6600582385 /* ExtensionForUserDefauls.swift */; };
@@ -64,6 +65,7 @@
 		7C7610DC613DA80A15323AC8 /* Pods-Project1_DuyUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project1_DuyUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Project1_DuyUITests/Pods-Project1_DuyUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		875C605CF7B5674BB51AA7E1 /* Pods-Project1_Duy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project1_Duy.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Project1_Duy/Pods-Project1_Duy.debug.xcconfig"; sourceTree = "<group>"; };
 		CB8080472CA7D30F6BACA283 /* Pods_Project1_DuyUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Project1_DuyUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E10212821FA1D23C00450C9F /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		E104377F1F6529F400582385 /* NavigationCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationCustom.swift; sourceTree = "<group>"; };
 		E10437811F652A6800582385 /* ManHinhHomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManHinhHomeController.swift; sourceTree = "<group>"; };
 		E10437851F652C6600582385 /* ExtensionForUserDefauls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionForUserDefauls.swift; sourceTree = "<group>"; };
@@ -215,6 +217,7 @@
 				E184032B1F619B9C00570A74 /* Trang.swift */,
 				E1C239771F6A5B9D000ECA09 /* MenuButton.swift */,
 				E1F2B3881F6CE67A00646F8F /* MenuTableViewCell.swift */,
+				E10212821FA1D23C00450C9F /* UserProfile.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -575,6 +578,7 @@
 				E145D0111F63A635008990B4 /* ChaoMungCell.swift in Sources */,
 				E113B08C1FA1023C0041976C /* LoadingViewController.swift in Sources */,
 				E145D00F1F624F9E008990B4 /* Extension.swift in Sources */,
+				E10212831FA1D23C00450C9F /* UserProfile.swift in Sources */,
 				E10437801F6529F400582385 /* NavigationCustom.swift in Sources */,
 				E1CA48901F9B45D900716946 /* ManHinh2controller.swift in Sources */,
 				E1B7048D1F61883B0084D0E9 /* PageCell.swift in Sources */,

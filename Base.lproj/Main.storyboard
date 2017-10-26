@@ -62,7 +62,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="niy-Qn-lDz">
-                                <rect key="frame" x="0.0" y="190" width="375" height="477"/>
+                                <rect key="frame" x="0.0" y="186" width="375" height="481"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="gray" indentationWidth="10" reuseIdentifier="cell" rowHeight="70" id="p2T-9y-a5z" customClass="MenuCusTableViewCell" customModule="Project1_Duy" customModuleProvider="target">
@@ -95,58 +95,51 @@
                                 <sections/>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0tZ-mD-5YF" userLabel="dangxuat">
-                                <rect key="frame" x="0.0" y="100" width="375" height="90"/>
+                                <rect key="frame" x="0.0" y="145" width="375" height="41"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ngô Anh Duy" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jnj-H9-ANR">
-                                        <rect key="frame" x="73" y="15" width="139" height="34"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                        <color key="textColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="hinh1" translatesAutoresizingMaskIntoConstraints="NO" id="iA7-lN-S0A">
-                                        <rect key="frame" x="8" y="15" width="68" height="60"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Adminstator" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pea-DW-9j5">
-                                        <rect key="frame" x="82" y="48" width="93" height="21"/>
+                                        <rect key="frame" x="113" y="0.0" width="93" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZRV-nh-2lQ" userLabel="thongtinUser">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
-                                <subviews>
-                                    <searchBar contentMode="redraw" fixedFrame="YES" barStyle="blackTranslucent" searchBarStyle="minimal" text="Tìm kiếm..." translatesAutoresizingMaskIntoConstraints="NO" id="kq1-bT-fxp">
-                                        <rect key="frame" x="0.0" y="44" width="303" height="56"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                        <color key="barTintColor" red="0.35671188929999997" green="0.69403785510000005" blue="0.95373968909999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </searchBar>
-                                </subviews>
-                                <color key="backgroundColor" red="0.92935490608215332" green="0.1267901167240448" blue="0.1263482856900692" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="WMC-nR-OEk"/>
+                                    <constraint firstAttribute="height" constant="41" id="f6P-xD-txc"/>
                                 </constraints>
                             </view>
+                            <imageView userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cover" translatesAutoresizingMaskIntoConstraints="NO" id="eKN-CR-SAT">
+                                <rect key="frame" x="0.0" y="20" width="280" height="125"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="125" id="3tX-4p-ayh"/>
+                                    <constraint firstAttribute="width" constant="280" id="gZ7-fX-W8O"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ngô Anh Duy" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jnj-H9-ANR">
+                                <rect key="frame" x="94" y="111" width="139" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="avatarmeo" translatesAutoresizingMaskIntoConstraints="NO" id="iA7-lN-S0A">
+                                <rect key="frame" x="16" y="100" width="70" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.17372359734018236" green="0.17341682471966355" blue="0.19288629482542807" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="ZRV-nh-2lQ" firstAttribute="leading" secondItem="bdr-8j-7i4" secondAttribute="leading" id="5B3-Fs-bEH"/>
-                            <constraint firstItem="0tZ-mD-5YF" firstAttribute="leading" secondItem="bdr-8j-7i4" secondAttribute="leading" id="Bom-cs-fUE"/>
-                            <constraint firstAttribute="trailing" secondItem="0tZ-mD-5YF" secondAttribute="trailing" id="LRh-U7-Aq8"/>
-                            <constraint firstAttribute="trailing" secondItem="ZRV-nh-2lQ" secondAttribute="trailing" id="RsI-vX-g8q"/>
-                            <constraint firstItem="niy-Qn-lDz" firstAttribute="leading" secondItem="bdr-8j-7i4" secondAttribute="leading" id="SxP-w8-BLr"/>
-                            <constraint firstItem="0tZ-mD-5YF" firstAttribute="top" secondItem="ZRV-nh-2lQ" secondAttribute="bottom" id="avQ-2G-HZ9"/>
-                            <constraint firstAttribute="trailing" secondItem="niy-Qn-lDz" secondAttribute="trailing" id="fqt-2l-X8O"/>
-                            <constraint firstItem="niy-Qn-lDz" firstAttribute="top" secondItem="D1U-Gw-LKF" secondAttribute="bottom" constant="170" id="lZg-wb-oEb"/>
-                            <constraint firstItem="niy-Qn-lDz" firstAttribute="top" secondItem="0tZ-mD-5YF" secondAttribute="bottom" id="msC-pS-zw2"/>
-                            <constraint firstItem="ZRV-nh-2lQ" firstAttribute="top" secondItem="bdr-8j-7i4" secondAttribute="top" id="xN4-2b-SDI"/>
-                            <constraint firstItem="pXr-yR-dDk" firstAttribute="top" secondItem="niy-Qn-lDz" secondAttribute="bottom" id="xV5-ha-d4s"/>
+                            <constraint firstItem="0tZ-mD-5YF" firstAttribute="leading" secondItem="bdr-8j-7i4" secondAttribute="leading" id="6t0-76-zOd"/>
+                            <constraint firstItem="pXr-yR-dDk" firstAttribute="top" secondItem="niy-Qn-lDz" secondAttribute="bottom" id="AQU-gM-Uqx"/>
+                            <constraint firstItem="eKN-CR-SAT" firstAttribute="leading" secondItem="bdr-8j-7i4" secondAttribute="leading" id="Bmi-xF-wLL"/>
+                            <constraint firstAttribute="trailing" secondItem="0tZ-mD-5YF" secondAttribute="trailing" id="CNi-Sp-gOC"/>
+                            <constraint firstItem="niy-Qn-lDz" firstAttribute="top" secondItem="0tZ-mD-5YF" secondAttribute="bottom" id="JFW-dh-Gls"/>
+                            <constraint firstItem="eKN-CR-SAT" firstAttribute="top" secondItem="D1U-Gw-LKF" secondAttribute="bottom" id="VwU-YE-eym"/>
+                            <constraint firstItem="0tZ-mD-5YF" firstAttribute="top" secondItem="eKN-CR-SAT" secondAttribute="bottom" id="d9f-1d-5Ue"/>
+                            <constraint firstItem="niy-Qn-lDz" firstAttribute="leading" secondItem="bdr-8j-7i4" secondAttribute="leading" id="lkC-2K-Pcm"/>
+                            <constraint firstAttribute="trailing" secondItem="niy-Qn-lDz" secondAttribute="trailing" id="nKb-5f-Z17"/>
                         </constraints>
                     </view>
                     <connections>
@@ -526,7 +519,7 @@
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="barTintColor" red="0.20883597433567047" green="0.47753813862800598" blue="0.87883180379867554" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="barTintColor" red="0.25490196078431371" green="0.52549019607843139" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         </textAttributes>
@@ -542,9 +535,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="avatarmeo" width="200" height="200"/>
         <image name="comment" width="37" height="37"/>
+        <image name="cover" width="720" height="405"/>
         <image name="duy" width="225" height="225"/>
-        <image name="hinh1" width="147" height="147"/>
         <image name="like" width="37" height="37"/>
         <image name="view" width="37" height="37"/>
     </resources>
