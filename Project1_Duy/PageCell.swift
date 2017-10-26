@@ -87,7 +87,8 @@ class Pagecell: UICollectionViewCell {
         addSubview(MoTa)
        // addSubview(LineNgang)
        background.anchorToTop(topAnchor, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor)
-        
+//        background.anchor(topAnchor, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 0)
+//
        HinhHuongDan.anchor(background.topAnchor, left: background.leftAnchor, bottom: MoTa.topAnchor, right: background.rightAnchor, topConstant: 90, leftConstant: 30, bottomConstant: 30, rightConstant: 30, widthConstant: 0, heightConstant: 0)
         
   //      MoTa.anchorToTop(nil, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor)

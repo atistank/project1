@@ -53,7 +53,8 @@ class Main: UIViewController,UITableViewDelegate,UITableViewDataSource {
                 self.rssItemsSuorce?.append(contentsOf:  data)
                 
                 DispatchQueue.main.async {
-                   self.tbView.reloadData()
+                 //  self.tbView.reloadData()
+                     self.tbView.reloadSections(IndexSet(integer: 0), with: .left) // reload section tableview
                 }
 //                OperationQueue.main.addOperation {
 //                    // reload phải trong luồng chính

@@ -12,7 +12,7 @@ class LoginCell: UICollectionViewCell{
     let backgroundCell: UIImageView = {
         let bk = UIImageView()
         bk.image = #imageLiteral(resourceName: "programmer")
-     //   bk.backgroundColor = #colorLiteral(red: 0.5843137503, green: 0.8235294223, blue: 0.4196078479, alpha: 1)
+      bk.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         bk.contentMode = .scaleAspectFit // giu nguyen ty le hinh
         bk.clipsToBounds = true
         return bk
@@ -46,12 +46,37 @@ class LoginCell: UICollectionViewCell{
     }()
     
     
+    let hoacText: UILabel = {
+        let l = UILabel()
+        l.text  = "Hoặc"
+        l.sizeToFit()
+        l.font = UIFont(name: "system", size: 9.0)
+        l.numberOfLines = 3
+        l.textAlignment = .center
+        l.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        l.textColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
+        return l
+    }()
+    
+    
+    lazy var google: UIButton = {
+        let st = UIButton(type: .system)
+        st.setTitle("Log in with facebook", for: .normal)
+        st.setTitleColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
+        st.backgroundColor = #colorLiteral(red: 0.171889931, green: 0.3709711432, blue: 0.9556652904, alpha: 1)
+        st.layer.cornerRadius = 27
+        st.clipsToBounds = true
+        
+        st.addTarget(self, action: #selector(chuyenManHinhMain), for: .touchUpInside)
+        return st
+    }()
+    
     
     lazy var StarButton: UIButton = {
         let st = UIButton(type: .system)
-        st.setTitle("Bắt Đầu Nào", for: .normal)
+        st.setTitle("Đăng ký nào !", for: .normal)
         st.setTitleColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
-        st.backgroundColor = #colorLiteral(red: 0.4, green: 0.6980392157, blue: 0.9725490196, alpha: 1)
+        st.backgroundColor = #colorLiteral(red: 0.9985899329, green: 0.2290443182, blue: 0.09162571281, alpha: 1)
         st.layer.cornerRadius = 27
         st.clipsToBounds = true
       
@@ -75,6 +100,8 @@ class LoginCell: UICollectionViewCell{
         addSubview(textdescription)
         addSubview(labeltext)
         addSubview(backgroundCell)
+        addSubview(google)
+        addSubview(hoacText)
         addSubview(StarButton)
         let gradientx = CAGradientLayer()
         gradientx.colors = [UIColor.blue,UIColor.red]
@@ -83,20 +110,14 @@ class LoginCell: UICollectionViewCell{
         gradientx.frame = StarButton.bounds
         StarButton.layer.insertSublayer(gradientx, at: 0)
         
-        //  HinhHuongDan.anchorToTop(topAnchor, left: leftAnchor, bottom: MoTa.topAnchor, right: rightAnchor)
-       //  labeltext.anchorToTop(topAnchor , left: leftAnchor, bottom: backgroundCell.topAnchor, right: rightAnchor)
         labeltext.anchor(topAnchor, left: leftAnchor, bottom: textdescription.topAnchor, right: rightAnchor, topConstant: 70, leftConstant: 40, bottomConstant: 0, rightConstant: 40, widthConstant: 0, heightConstant: 50)
         
-        textdescription.anchor(labeltext.bottomAnchor, left: leftAnchor, bottom: backgroundCell.topAnchor, right: rightAnchor, topConstant: 0, leftConstant: 20, bottomConstant: 15, rightConstant: 20, widthConstant: 0, heightConstant: 70)
-        
-        
-//        _ = backgroundCell.anchor(topAnchor, left: leftAnchor, bottom: backgroundCell.topAnchor, right: rightAnchor, topConstant: 30  , leftConstant: 30 , bottomConstant: 0, rightConstant: 0, widthConstant: 100, heightConstant: 50)
-        
-        
-     //  backgroundCell.anchorToTop(topAnchor, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor)
-        _ = backgroundCell.anchor(topAnchor, left: leftAnchor, bottom: StarButton.topAnchor, right: rightAnchor, topConstant: 200, leftConstant: 40, bottomConstant: 100, rightConstant: 40, widthConstant: 0, heightConstant: 0)
-        
-       // _ =  button.anchor(nil, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, topConstant: 0, leftConstant: 26, bottomConstant: 100, rightConstant: 26, widthConstant: 0, heightConstant: 50)
+        textdescription.anchor(labeltext.bottomAnchor, left: leftAnchor, bottom: backgroundCell.topAnchor, right: rightAnchor, topConstant: 10, leftConstant: 20, bottomConstant: 0, rightConstant: 20, widthConstant: 0, heightConstant: 70)
+       
+        _ = backgroundCell.anchor(topAnchor, left: leftAnchor, bottom: StarButton.topAnchor, right: rightAnchor, topConstant: 180, leftConstant: 40, bottomConstant: 150, rightConstant: 40, widthConstant: 0, heightConstant: 0)
+        _ = google.anchor(nil, left: leftAnchor, bottom: hoacText.topAnchor, right: rightAnchor, topConstant: 0, leftConstant: 26, bottomConstant: 10, rightConstant: 26, widthConstant: 0, heightConstant: 50)
+       
+        _ = hoacText.anchor(nil, left: leftAnchor, bottom: StarButton.topAnchor, right: rightAnchor, topConstant: 0, leftConstant: 26, bottomConstant: 10, rightConstant: 26, widthConstant: 0, heightConstant: 0)
       _ =  StarButton.anchor(nil, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, topConstant: 0, leftConstant: 26, bottomConstant: 50, rightConstant: 26, widthConstant: 0, heightConstant: 50)
     }
     

@@ -443,7 +443,7 @@
                         <color key="tintColor" red="0.20010940729999999" green="0.2001093477" blue="0.2001093477" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
-                                <color key="value" red="0.40000000000000002" green="0.69803921568627447" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="value" red="0.20883597433567047" green="0.47753813862800598" blue="0.87883180379867554" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="color" keyPath="unselectedItemTintColor">
                                 <color key="value" red="0.60000002379999995" green="0.60000002379999995" blue="0.60000002379999995" alpha="1" colorSpace="calibratedRGB"/>
@@ -526,7 +526,7 @@
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="barTintColor" red="0.40000000000000002" green="0.69803921568627447" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="barTintColor" red="0.20883597433567047" green="0.47753813862800598" blue="0.87883180379867554" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         </textAttributes>
