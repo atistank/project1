@@ -101,7 +101,7 @@ extension String {
 }
 
 
-extension UIView
+extension UIImageView
 {
     // different inner shadow styles
     public enum innerShadowSide

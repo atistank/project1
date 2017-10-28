@@ -16,7 +16,7 @@ protocol ChuyenManHinhLoginDelegate {
 
 
 class ViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,ChuyenManHinhLoginDelegate {
-     var dict : [String : AnyObject]!
+    
 
     
     
@@ -121,36 +121,50 @@ class ViewController: UIViewController,UICollectionViewDelegate,UICollectionView
                     print("da cancel")
                     return
                 }
+                
                 if(fbloginresult.grantedPermissions.contains("email"))
                 {
                     print("da lay thong tin")
                     print(fbloginresult.token.tokenString)
-                    
-                    let fbReq = FBSDKGraphRequest(graphPath: "/me", parameters: ["fields":"name,email,first_name,cover,picture.type(large)"])
-                    fbReq?.start(completionHandler: { (connect, info, err) in
-                        guard let info = info else {return}
-                        print("========================================")
-                        self.dict = info as! [String : AnyObject]
-                       // print(info)
-                        print(self.dict)
-                        let name: String  = (self.dict["name"] as? String)!
-                        let email: String  = (self.dict["email"] as? String)!
-                        let picture:  [String : AnyObject]  = (self.dict["picture"] as?  [String : AnyObject])!
-                        let data:  [String : AnyObject] = (picture["data"] as?  [String : AnyObject]!)!
-                        let url:  String  = (data["url"] as? String)!
-                        print(name)
-                        print(url)
-                        
-                    })
-                    
+                   self.chuyenmanhinh()
+//
+//                    let fbReq = FBSDKGraphRequest(graphPath: "/me", parameters: ["fields":"name,email,first_name,cover,picture.type(large)"])
+//                    fbReq?.start(completionHandler: { (connect, info, err) in
+//                        guard let info = info else {return}
+//                        print("========================================")
+//                        self.dict = info as! [String : AnyObject]
+//                       // print(info)
+//                        print(self.dict)
+//                        let name: String  = (self.dict["name"] as? String)!
+//                        let IDjson: String  = (self.dict["id"] as? String)!
+//                        let email: String  = (self.dict["email"] as? String)!
+//                        let firstname: String  = (self.dict["first_name"] as? String)!
+//                        let picture:  [String : AnyObject]  = (self.dict["picture"] as?  [String : AnyObject])!
+//                        let data:  [String : AnyObject] = (picture["data"] as?  [String : AnyObject]!)!
+//                        let avatarFacebook:  String  = (data["url"] as? String)!
+//                        let cover:  [String : AnyObject]  = (self.dict["cover"] as?  [String : AnyObject])!
+//                        let CoverFacebook:  String = (cover["source"] as?  String!)!
+//
+////
+//
+//
+//
+////                        print(name)
+////                        print(email)
+////                        print(firstname)
+////                        print(avatarFacebook)
+////                        print(CoverFacebook)
+//
+//                    })
+//
                     
                    
                     //
                     //me?fields=name,email,picture.type(large),cover
                 }
             }
-        }
-        
+     }
+//
     }
     
     

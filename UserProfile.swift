@@ -12,20 +12,20 @@ struct UserProfile:Decodable {
     var email:String?
     var first_name: String?
     var id: String?
-    var cover: coverImg?
-    var picture: data?
+    var cover: String?
+    var picture: String?
 }
-struct coverImg:Decodable {
-    var id:String?
-    var offset_x: String?
-    var offset_y: String?
-    var source:String?
-}
-struct data:Decodable {
-    var is_silhouette:String?
-    var url: String?
-    
-}
+//struct coverImg:Decodable {
+//    var id:String?
+//    var offset_x: String?
+//    var offset_y: String?
+//    var source:String?
+//}
+//struct data:Decodable {
+//    var is_silhouette:String?
+//    var url: String?
+//
+//}
 
 
 
