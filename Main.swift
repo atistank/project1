@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 
 
@@ -15,7 +16,7 @@ class Main: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
     
     
-
+   
     var indexCuaSugeu:Int = 0
 
     @IBOutlet weak var Nut: UIBarButtonItem!
@@ -54,7 +55,7 @@ class Main: UIViewController,UITableViewDelegate,UITableViewDataSource {
                 
                 DispatchQueue.main.async {
                  //  self.tbView.reloadData()
-                     self.tbView.reloadSections(IndexSet(integer: 0), with: .left) // reload section tableview
+                     self.tbView.reloadSections(IndexSet(integer: 0), with: .right) // reload section tableview
                 }
 //                OperationQueue.main.addOperation {
 //                    // reload phải trong luồng chính
@@ -72,7 +73,7 @@ class Main: UIViewController,UITableViewDelegate,UITableViewDataSource {
         setThongsoUI()
         tbView.delegate = self
         tbView.dataSource = self
-        
+     
        
         // bỏ dòng line giữa các cell của tableview
         tbView.separatorStyle = UITableViewCellSeparatorStyle.none
@@ -128,7 +129,7 @@ extension Main{
         
        cell.item = asd
         
-      
+        
         return cell
     }
     
@@ -162,11 +163,36 @@ extension Main{
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        // vi tri luc dau từ bên trái (-255) ở trên (20) đi xuống
+        
+        
+            cell.alpha = 0
+            let vitricell = CATransform3DTranslate(CATransform3DIdentity, -250, 20, 0 )
+            cell.layer.transform = vitricell
+       
+            UIView.animate(withDuration: 0.8) {
+                cell.alpha = 1.0
+                cell.layer.transform = CATransform3DIdentity
+            }
+           
+        
+        
+        
+        
+        
+        
+        
         if indexPath.row == (rssItemsSuorce?.count)! - 1 {
             soTrang += 1
            fetchData(index: soTrang)
            
           }
+        
+        
+        
+        
+        
+        
         }
     func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
         let cell  = tableView.cellForRow(at: indexPath)

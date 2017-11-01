@@ -9,9 +9,10 @@
 import UIKit
 import FBSDKCoreKit
 import FBSDKLoginKit
-
+import RealmSwift
 protocol ChuyenManHinhLoginDelegate {
     func chuyenmanhinh()
+    func dangky()
 }
 
 
@@ -19,7 +20,7 @@ class ViewController: UIViewController,UICollectionViewDelegate,UICollectionView
     
 
     
-    
+    var dict : [String : AnyObject]!
 
     lazy var collectionView: UICollectionView = {
         
@@ -37,6 +38,11 @@ class ViewController: UIViewController,UICollectionViewDelegate,UICollectionView
         return cv
     }()
     
+    func dangky(){
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+         let dangkyview = sb.instantiateViewController(withIdentifier: "DangKy") as! DangKycontroller
+        present(dangkyview, animated: true, completion: nil)
+    }
     
     func chuyenmanhinh(){
        
@@ -51,9 +57,9 @@ class ViewController: UIViewController,UICollectionViewDelegate,UICollectionView
     let MainCellID = "MainCellID"
     
     let pages: [Trang] = {
-        let Trang1 = Trang(title: "Welcome to DevBlog", Huongdan: "Ứng dụng xem tài liệu trực tuyến dành cho dev, lưu trữ offline và xem mọi lúc mọi nơi, hàng trăm bài viết cập nhật mỗi ngày 😎 ", imageName: "134",background: "backgroung1")
-        let Trang2 = Trang(title: "Nghe Nhac", Huongdan: "Ban co the mien tu tren mang ve roi tu nghe minh enh.Ban co the mien tu tren mang ve roi tu nghe minh enh", imageName: "logo1", background: "trang")
-        let Trang3 = Trang(title: "Dang ky thanh vien", Huongdan: "Dang ky thanh vien de co them nhieu quyen loi va chuc nang, nhanh tay len.", imageName: "page3", background: "trang")
+        let Trang1 = Trang(title: "Welcome to DevBlog", Huongdan: "Ứng dụng xem tài liệu trực tuyến dành cho dev, lưu trữ offline và xem mọi lúc mọi nơi, hàng trăm bài viết cập nhật mỗi ngày 😎 ", imageName: "intro5",background: "backgroung1")
+        let Trang2 = Trang(title: "Nghe Nhac", Huongdan: "Ban co the mien tu tren mang ve roi tu nghe minh enh.Ban co the mien tu tren mang ve roi tu nghe minh enh", imageName: "intro9", background: "trang")
+        let Trang3 = Trang(title: "Dang ky thanh vien", Huongdan: "Dang ky thanh vien de co them nhieu quyen loi va chuc nang, nhanh tay len.", imageName: "intro9", background: "trang")
         return [Trang1,Trang2,Trang3]
     }()
     
@@ -126,39 +132,42 @@ class ViewController: UIViewController,UICollectionViewDelegate,UICollectionView
                 {
                     print("da lay thong tin")
                     print(fbloginresult.token.tokenString)
-                   self.chuyenmanhinh()
-//
-//                    let fbReq = FBSDKGraphRequest(graphPath: "/me", parameters: ["fields":"name,email,first_name,cover,picture.type(large)"])
-//                    fbReq?.start(completionHandler: { (connect, info, err) in
-//                        guard let info = info else {return}
-//                        print("========================================")
-//                        self.dict = info as! [String : AnyObject]
-//                       // print(info)
-//                        print(self.dict)
-//                        let name: String  = (self.dict["name"] as? String)!
-//                        let IDjson: String  = (self.dict["id"] as? String)!
-//                        let email: String  = (self.dict["email"] as? String)!
-//                        let firstname: String  = (self.dict["first_name"] as? String)!
-//                        let picture:  [String : AnyObject]  = (self.dict["picture"] as?  [String : AnyObject])!
-//                        let data:  [String : AnyObject] = (picture["data"] as?  [String : AnyObject]!)!
-//                        let avatarFacebook:  String  = (data["url"] as? String)!
-//                        let cover:  [String : AnyObject]  = (self.dict["cover"] as?  [String : AnyObject])!
-//                        let CoverFacebook:  String = (cover["source"] as?  String!)!
-//
-////
-//
-//
-//
-////                        print(name)
-////                        print(email)
-////                        print(firstname)
-////                        print(avatarFacebook)
-////                        print(CoverFacebook)
-//
-//                    })
-//
+                  
+
+                    let fbReq = FBSDKGraphRequest(graphPath: "/me", parameters: ["fields":"name,email,first_name,cover,picture.type(large)"])
+                    fbReq?.start(completionHandler: { (connect, info, err) in
+                        guard let info = info else {return}
+                        print("========================================")
+                        self.dict = info as! [String : AnyObject]
+                       // print(info)
+                        print(self.dict)
+                        let name: String  = (self.dict["name"] as? String)!
+                        let IDjson: String  = (self.dict["id"] as? String)!
+                        let email: String  = (self.dict["email"] as? String)!
+                        let firstname: String  = (self.dict["first_name"] as? String)!
+                        let picture:  [String : AnyObject]  = (self.dict["picture"] as?  [String : AnyObject])!
+                        let data:  [String : AnyObject] = (picture["data"] as?  [String : AnyObject]!)!
+                        let avatarFacebook:  String  = (data["url"] as? String)!
+                        let cover:  [String : AnyObject]  = (self.dict["cover"] as?  [String : AnyObject])!
+                        let CoverFacebook:  String = (cover["source"] as?  String!)!
+
+
+                        
+
+                        print(name)
+                        print(IDjson)
+                        print(email)
+                        print(firstname)
+                        print(avatarFacebook)
+                        print(CoverFacebook)
+
+                        let newUser = UserRealm(email: email, avatarRealm: avatarFacebook, coverRealm: CoverFacebook, nameRealm: name, FirstnameRealm: firstname, ChucVuRealm: 0)
+                        RealmService.shared.create(newUser)
+                        
+                    })
+
                     
-                   
+                     self.chuyenmanhinh()
                     //
                     //me?fields=name,email,picture.type(large),cover
                 }
@@ -269,8 +278,9 @@ class ViewController: UIViewController,UICollectionViewDelegate,UICollectionView
         }
         // Tạo cell bình thường
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath) as! Pagecell
-        let page = pages[indexPath.item]
-        cell.page = page
+        cell.page = pages[indexPath.item]
+     
+        
             return cell
     }
     
@@ -278,6 +288,26 @@ class ViewController: UIViewController,UICollectionViewDelegate,UICollectionView
     // moi cell rong bang kich thuoc man hinh view
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: view.frame.width, height: view.frame.height)
+    }
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        
+        
+        if indexPath.row != 0 {
+            // vi tri luc dau từ bên trái (-255) ở trên (20) đi xuống
+            cell.alpha = 0
+            let vitricell = CATransform3DTranslate(CATransform3DIdentity, 0, 50, 0 )
+            cell.layer.transform = vitricell
+            // sau 1 giây hiện ra và quay lai vi tri mac dinh
+            
+            UIView.animate(withDuration: 0.8) {
+                cell.alpha = 1.0
+                cell.layer.transform = CATransform3DIdentity
+            }
+        }
+        
+       
+        
+        
     }
     
     fileprivate func thongtinAutolayoutForButton(){
@@ -305,8 +335,7 @@ class ViewController: UIViewController,UICollectionViewDelegate,UICollectionView
         // lấy vị trí x hiện tại chia chiều ngang của view sẽ dc vị trí trang ( số chẳn )
         let pageNumber = Int(targetContentOffset.pointee.x / view.frame.width)
         DieuKhienTrang.currentPage = pageNumber
-        
-        
+     
         //nếu trượt đến trang cuối thì ẩn page control
         if pageNumber == pages.count
         {

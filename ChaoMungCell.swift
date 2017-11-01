@@ -80,19 +80,19 @@ class LoginCell: UICollectionViewCell{
         st.layer.cornerRadius = 27
         st.clipsToBounds = true
       
-        st.addTarget(self, action: #selector(chuyenManHinhMain), for: .touchUpInside)
+        st.addTarget(self, action: #selector(dangky), for: .touchUpInside)
         return st
     }()
     
-    
-    var delegateChuyenManHinh: ChuyenManHinhLoginDelegate?
+     var delegateChuyenManHinh: ChuyenManHinhLoginDelegate?
+  
+    func dangky(){
+    delegateChuyenManHinh?.dangky()
+    }
+
     @objc func chuyenManHinhMain(){
         delegateChuyenManHinh?.chuyenmanhinh()
     }
-    
-  
-    
-    
     
     override init(frame: CGRect) {
         super.init(frame: frame)

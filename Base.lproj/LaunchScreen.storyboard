@@ -24,10 +24,23 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backgroung1" translatesAutoresizingMaskIntoConstraints="NO" id="F0w-Xf-3qO">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="V4M-wG-6f8">
+                                <rect key="frame" x="144.5" y="318.5" width="87" height="30"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nFs-YA-vaK">
+                                        <rect key="frame" x="0.0" y="0.0" width="87" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <color key="textColor" red="0.66132614213197971" green="0.66132614213197971" blue="0.66132614213197971" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="V4M-wG-6f8" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="3Dp-E9-Ynb"/>
                             <constraint firstAttribute="trailing" secondItem="F0w-Xf-3qO" secondAttribute="trailing" id="438-Db-gkK"/>
+                            <constraint firstItem="V4M-wG-6f8" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="AVW-fz-HCa"/>
                             <constraint firstItem="F0w-Xf-3qO" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="tvH-2d-8oD"/>
                             <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="F0w-Xf-3qO" secondAttribute="bottom" id="zfr-AR-pg8"/>
                             <constraint firstItem="F0w-Xf-3qO" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="zuy-lB-HLK"/>

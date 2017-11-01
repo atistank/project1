@@ -8,7 +8,10 @@
 
 import UIKit
 
-extension UIButton{
+
+
+
+extension UIView{
     
     func buttonGradient(color1: UIColor, color2: UIColor){
         let but = CAGradientLayer()
@@ -31,12 +34,6 @@ extension UIButton{
         layer.insertSublayer(but, at: 0)
         
     }
-}
-
-
-extension UIView{
-    
-  
     
 func anchorToTop(_ top: NSLayoutYAxisAnchor? = nil, left: NSLayoutXAxisAnchor? = nil, bottom: NSLayoutYAxisAnchor? = nil, right: NSLayoutXAxisAnchor? = nil) {
     

@@ -28,6 +28,10 @@
 		E145D0111F63A635008990B4 /* ChaoMungCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E145D0101F63A635008990B4 /* ChaoMungCell.swift */; };
 		E145D0131F63B387008990B4 /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = E145D0121F63B387008990B4 /* Main.swift */; };
 		E1492B841F9A4044009AF557 /* webcontroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1492B831F9A4044009AF557 /* webcontroller.swift */; };
+		E152B60F1FA8CA4000571CAF /* Realm.swift in Sources */ = {isa = PBXBuildFile; fileRef = E152B60E1FA8CA4000571CAF /* Realm.swift */; };
+		E152B6111FA8CBCE00571CAF /* UserRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = E152B6101FA8CBCE00571CAF /* UserRealm.swift */; };
+		E152B6131FA8CFC000571CAF /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E152B6121FA8CFC000571CAF /* RealmService.swift */; };
+		E157650D1FA481D20072FCE1 /* DangKycontroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = E157650C1FA481D20072FCE1 /* DangKycontroller.swift */; };
 		E184032C1F619B9C00570A74 /* Trang.swift in Sources */ = {isa = PBXBuildFile; fileRef = E184032B1F619B9C00570A74 /* Trang.swift */; };
 		E1B7048D1F61883B0084D0E9 /* PageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B7048C1F61883B0084D0E9 /* PageCell.swift */; };
 		E1C239701F6A33E6000ECA09 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1C2396F1F6A33E6000ECA09 /* SWRevealViewController.m */; };
@@ -89,6 +93,10 @@
 		E145D0101F63A635008990B4 /* ChaoMungCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChaoMungCell.swift; sourceTree = "<group>"; };
 		E145D0121F63B387008990B4 /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
 		E1492B831F9A4044009AF557 /* webcontroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = webcontroller.swift; sourceTree = "<group>"; };
+		E152B60E1FA8CA4000571CAF /* Realm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Realm.swift; sourceTree = "<group>"; };
+		E152B6101FA8CBCE00571CAF /* UserRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRealm.swift; sourceTree = "<group>"; };
+		E152B6121FA8CFC000571CAF /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
+		E157650C1FA481D20072FCE1 /* DangKycontroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DangKycontroller.swift; sourceTree = "<group>"; };
 		E184032B1F619B9C00570A74 /* Trang.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trang.swift; sourceTree = "<group>"; };
 		E1B7048C1F61883B0084D0E9 /* PageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PageCell.swift; path = Project1_Duy/PageCell.swift; sourceTree = "<group>"; };
 		E1C2396D1F6A33E5000ECA09 /* Project1_Duy-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Project1_Duy-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -218,6 +226,7 @@
 				E1C239771F6A5B9D000ECA09 /* MenuButton.swift */,
 				E1F2B3881F6CE67A00646F8F /* MenuTableViewCell.swift */,
 				E10212821FA1D23C00450C9F /* UserProfile.swift */,
+				E152B6101FA8CBCE00571CAF /* UserRealm.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -249,6 +258,9 @@
 				E1C239711F6A3C16000ECA09 /* MenuSlide.swift */,
 				E1492B831F9A4044009AF557 /* webcontroller.swift */,
 				E1CA488F1F9B45D900716946 /* ManHinh2controller.swift */,
+				E157650C1FA481D20072FCE1 /* DangKycontroller.swift */,
+				E152B60E1FA8CA4000571CAF /* Realm.swift */,
+				E152B6121FA8CFC000571CAF /* RealmService.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -506,6 +518,8 @@
 				"${BUILT_PRODUCTS_DIR}/FacebookCore/FacebookCore.framework",
 				"${BUILT_PRODUCTS_DIR}/FacebookLogin/FacebookLogin.framework",
 				"${BUILT_PRODUCTS_DIR}/FacebookShare/FacebookShare.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -516,6 +530,8 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookCore.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookLogin.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookShare.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -569,8 +585,11 @@
 				E184032C1F619B9C00570A74 /* Trang.swift in Sources */,
 				E1492B841F9A4044009AF557 /* webcontroller.swift in Sources */,
 				E10437861F652C6600582385 /* ExtensionForUserDefauls.swift in Sources */,
+				E157650D1FA481D20072FCE1 /* DangKycontroller.swift in Sources */,
 				E1F2B3891F6CE67A00646F8F /* MenuTableViewCell.swift in Sources */,
+				E152B6131FA8CFC000571CAF /* RealmService.swift in Sources */,
 				E145D0131F63B387008990B4 /* Main.swift in Sources */,
+				E152B6111FA8CBCE00571CAF /* UserRealm.swift in Sources */,
 				E1C239761F6A5862000ECA09 /* MenuCusTableViewCell.swift in Sources */,
 				E1F2B3871F6CE53E00646F8F /* XMLParser.swift in Sources */,
 				E12F3D661F7B89E70076F377 /* MainTableViewCell.swift in Sources */,
@@ -584,6 +603,7 @@
 				E1B7048D1F61883B0084D0E9 /* PageCell.swift in Sources */,
 				E10437821F652A6800582385 /* ManHinhHomeController.swift in Sources */,
 				E13A8B331F617EA8002B32E4 /* AppDelegate.swift in Sources */,
+				E152B60F1FA8CA4000571CAF /* Realm.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
