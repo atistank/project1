@@ -59,28 +59,38 @@ class LoginCell: UICollectionViewCell{
     }()
     
     
-    lazy var google: UIButton = {
+    lazy var dangnhap: UIButton = {
         let st = UIButton(type: .system)
-        st.setTitle("Log in with facebook", for: .normal)
+        st.setTitle("Đăng Nhập", for: .normal)
         st.setTitleColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
-        st.backgroundColor = #colorLiteral(red: 0.171889931, green: 0.3709711432, blue: 0.9556652904, alpha: 1)
+        st.backgroundColor = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
         st.layer.cornerRadius = 27
         st.clipsToBounds = true
-        
-        st.addTarget(self, action: #selector(chuyenManHinhMain), for: .touchUpInside)
+        st.addTarget(self, action: #selector(dangky), for: .touchUpInside)
+        return st
+    }()
+    
+    lazy var google: UIButton = {
+        let st = UIButton(type: .system)
+        st.setTitle("Đăng ký nào !", for: .normal)
+        st.setTitleColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
+        st.backgroundColor = #colorLiteral(red: 0.1936542988, green: 0.4690380096, blue: 0.9528943896, alpha: 1)
+        st.layer.cornerRadius = 27
+        st.clipsToBounds = true
+        st.addTarget(self, action: #selector(dangnhap2), for: .touchUpInside)
         return st
     }()
     
     
     lazy var StarButton: UIButton = {
         let st = UIButton(type: .system)
-        st.setTitle("Đăng ký nào !", for: .normal)
+        st.setTitle("Bắt Đầu Ngay", for: .normal)
         st.setTitleColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
         st.backgroundColor = #colorLiteral(red: 0.9985899329, green: 0.2290443182, blue: 0.09162571281, alpha: 1)
         st.layer.cornerRadius = 27
         st.clipsToBounds = true
       
-        st.addTarget(self, action: #selector(dangky), for: .touchUpInside)
+        st.addTarget(self, action: #selector(chuyenManHinhMain), for: .touchUpInside)
         return st
     }()
     
@@ -88,6 +98,9 @@ class LoginCell: UICollectionViewCell{
   
     func dangky(){
     delegateChuyenManHinh?.dangky()
+    }
+    func dangnhap2(){
+        delegateChuyenManHinh?.dangnhap()
     }
 
     @objc func chuyenManHinhMain(){
@@ -100,8 +113,10 @@ class LoginCell: UICollectionViewCell{
         addSubview(textdescription)
         addSubview(labeltext)
         addSubview(backgroundCell)
+        addSubview(dangnhap)
         addSubview(google)
-        addSubview(hoacText)
+        
+       // addSubview(hoacText)
         addSubview(StarButton)
         let gradientx = CAGradientLayer()
         gradientx.colors = [UIColor.blue,UIColor.red]
@@ -115,10 +130,15 @@ class LoginCell: UICollectionViewCell{
         textdescription.anchor(labeltext.bottomAnchor, left: leftAnchor, bottom: backgroundCell.topAnchor, right: rightAnchor, topConstant: 10, leftConstant: 20, bottomConstant: 0, rightConstant: 20, widthConstant: 0, heightConstant: 70)
        
         _ = backgroundCell.anchor(topAnchor, left: leftAnchor, bottom: StarButton.topAnchor, right: rightAnchor, topConstant: 180, leftConstant: 40, bottomConstant: 150, rightConstant: 40, widthConstant: 0, heightConstant: 0)
-        _ = google.anchor(nil, left: leftAnchor, bottom: hoacText.topAnchor, right: rightAnchor, topConstant: 0, leftConstant: 26, bottomConstant: 10, rightConstant: 26, widthConstant: 0, heightConstant: 50)
-       
-        _ = hoacText.anchor(nil, left: leftAnchor, bottom: StarButton.topAnchor, right: rightAnchor, topConstant: 0, leftConstant: 26, bottomConstant: 10, rightConstant: 26, widthConstant: 0, heightConstant: 0)
-      _ =  StarButton.anchor(nil, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, topConstant: 0, leftConstant: 26, bottomConstant: 50, rightConstant: 26, widthConstant: 0, heightConstant: 50)
+        
+        
+        
+        _ = dangnhap.anchor(nil, left: leftAnchor, bottom: google.topAnchor, right: rightAnchor, topConstant: 0, leftConstant: 26, bottomConstant: 10, rightConstant: 26, widthConstant: 0, heightConstant: 50)
+        
+        _ = google.anchor(dangnhap.bottomAnchor, left: leftAnchor, bottom: StarButton.topAnchor, right: rightAnchor, topConstant: 0, leftConstant: 26, bottomConstant: 10, rightConstant: 26, widthConstant: 0, heightConstant: 50)
+        
+      //  _ = hoacText.anchor(nil, left: leftAnchor, bottom: StarButton.topAnchor, right: rightAnchor, topConstant: 0, leftConstant: 26, bottomConstant: 10, rightConstant: 26, widthConstant: 0, heightConstant: 0)
+      _ =  StarButton.anchor(nil, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, topConstant: 0, leftConstant: 26, bottomConstant: 30, rightConstant: 26, widthConstant: 0, heightConstant: 50)
     }
     
     required init?(coder aDecoder: NSCoder) {

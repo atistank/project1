@@ -13,6 +13,8 @@ import UIKit
 
 extension UIView{
     
+    
+    
     func buttonGradient(color1: UIColor, color2: UIColor){
         let but = CAGradientLayer()
         but.frame = bounds

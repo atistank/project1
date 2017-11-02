@@ -13,6 +13,7 @@ import RealmSwift
 protocol ChuyenManHinhLoginDelegate {
     func chuyenmanhinh()
     func dangky()
+    func dangnhap()
 }
 
 
@@ -40,7 +41,12 @@ class ViewController: UIViewController,UICollectionViewDelegate,UICollectionView
     
     func dangky(){
         let sb = UIStoryboard(name: "Main", bundle: nil)
-         let dangkyview = sb.instantiateViewController(withIdentifier: "DangKy") as! DangKycontroller
+         let dangkyview = sb.instantiateViewController(withIdentifier: "dangnhap") as! DangKycontroller
+        present(dangkyview, animated: true, completion: nil)
+    }
+    func dangnhap(){
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        let dangkyview = sb.instantiateViewController(withIdentifier: "DangKy") as! DangKyUserController
         present(dangkyview, animated: true, completion: nil)
     }
     
@@ -165,7 +171,7 @@ class ViewController: UIViewController,UICollectionViewDelegate,UICollectionView
                         RealmService.shared.create(newUser)
                         
                     })
-
+                    print(String(describing: Realm.Configuration.defaultConfiguration.fileURL))
                     
                      self.chuyenmanhinh()
                     //

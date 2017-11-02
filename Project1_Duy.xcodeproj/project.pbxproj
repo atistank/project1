@@ -31,13 +31,16 @@
 		E152B60F1FA8CA4000571CAF /* Realm.swift in Sources */ = {isa = PBXBuildFile; fileRef = E152B60E1FA8CA4000571CAF /* Realm.swift */; };
 		E152B6111FA8CBCE00571CAF /* UserRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = E152B6101FA8CBCE00571CAF /* UserRealm.swift */; };
 		E152B6131FA8CFC000571CAF /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E152B6121FA8CFC000571CAF /* RealmService.swift */; };
-		E157650D1FA481D20072FCE1 /* DangKycontroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = E157650C1FA481D20072FCE1 /* DangKycontroller.swift */; };
+		E157650D1FA481D20072FCE1 /* DangNhapcontroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = E157650C1FA481D20072FCE1 /* DangNhapcontroller.swift */; };
 		E184032C1F619B9C00570A74 /* Trang.swift in Sources */ = {isa = PBXBuildFile; fileRef = E184032B1F619B9C00570A74 /* Trang.swift */; };
+		E1A6B64E1FAA3F090023819E /* RightMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A6B64D1FAA3F090023819E /* RightMenu.swift */; };
+		E1A6B6501FAA452F0023819E /* rightmenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A6B64F1FAA452F0023819E /* rightmenuCell.swift */; };
 		E1B7048D1F61883B0084D0E9 /* PageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B7048C1F61883B0084D0E9 /* PageCell.swift */; };
 		E1C239701F6A33E6000ECA09 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1C2396F1F6A33E6000ECA09 /* SWRevealViewController.m */; };
 		E1C239721F6A3C16000ECA09 /* MenuSlide.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C239711F6A3C16000ECA09 /* MenuSlide.swift */; };
 		E1C239761F6A5862000ECA09 /* MenuCusTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C239751F6A5862000ECA09 /* MenuCusTableViewCell.swift */; };
 		E1C239781F6A5B9D000ECA09 /* MenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C239771F6A5B9D000ECA09 /* MenuButton.swift */; };
+		E1C4278F1FA9FDF7004929FA /* DangKyUserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C4278E1FA9FDF7004929FA /* DangKyUserController.swift */; };
 		E1CA48901F9B45D900716946 /* ManHinh2controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CA488F1F9B45D900716946 /* ManHinh2controller.swift */; };
 		E1F2B3871F6CE53E00646F8F /* XMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F2B3861F6CE53E00646F8F /* XMLParser.swift */; };
 		E1F2B3891F6CE67A00646F8F /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F2B3881F6CE67A00646F8F /* MenuTableViewCell.swift */; };
@@ -96,8 +99,10 @@
 		E152B60E1FA8CA4000571CAF /* Realm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Realm.swift; sourceTree = "<group>"; };
 		E152B6101FA8CBCE00571CAF /* UserRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRealm.swift; sourceTree = "<group>"; };
 		E152B6121FA8CFC000571CAF /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
-		E157650C1FA481D20072FCE1 /* DangKycontroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DangKycontroller.swift; sourceTree = "<group>"; };
+		E157650C1FA481D20072FCE1 /* DangNhapcontroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DangNhapcontroller.swift; sourceTree = "<group>"; };
 		E184032B1F619B9C00570A74 /* Trang.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trang.swift; sourceTree = "<group>"; };
+		E1A6B64D1FAA3F090023819E /* RightMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightMenu.swift; sourceTree = "<group>"; };
+		E1A6B64F1FAA452F0023819E /* rightmenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rightmenuCell.swift; sourceTree = "<group>"; };
 		E1B7048C1F61883B0084D0E9 /* PageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PageCell.swift; path = Project1_Duy/PageCell.swift; sourceTree = "<group>"; };
 		E1C2396D1F6A33E5000ECA09 /* Project1_Duy-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Project1_Duy-Bridging-Header.h"; sourceTree = "<group>"; };
 		E1C2396E1F6A33E6000ECA09 /* SWRevealViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
@@ -105,6 +110,7 @@
 		E1C239711F6A3C16000ECA09 /* MenuSlide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuSlide.swift; sourceTree = "<group>"; };
 		E1C239751F6A5862000ECA09 /* MenuCusTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCusTableViewCell.swift; sourceTree = "<group>"; };
 		E1C239771F6A5B9D000ECA09 /* MenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuButton.swift; sourceTree = "<group>"; };
+		E1C4278E1FA9FDF7004929FA /* DangKyUserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DangKyUserController.swift; sourceTree = "<group>"; };
 		E1CA488F1F9B45D900716946 /* ManHinh2controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManHinh2controller.swift; sourceTree = "<group>"; };
 		E1F2B3861F6CE53E00646F8F /* XMLParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XMLParser.swift; sourceTree = "<group>"; };
 		E1F2B3881F6CE67A00646F8F /* MenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
@@ -241,6 +247,7 @@
 				E145D00E1F624F9E008990B4 /* Extension.swift */,
 				E10437851F652C6600582385 /* ExtensionForUserDefauls.swift */,
 				E1C239751F6A5862000ECA09 /* MenuCusTableViewCell.swift */,
+				E1A6B64F1FAA452F0023819E /* rightmenuCell.swift */,
 				E12F3D651F7B89E70076F377 /* MainTableViewCell.swift */,
 				E113B08B1FA1023C0041976C /* LoadingViewController.swift */,
 			);
@@ -255,12 +262,14 @@
 				E104377F1F6529F400582385 /* NavigationCustom.swift */,
 				E10437811F652A6800582385 /* ManHinhHomeController.swift */,
 				E145D0121F63B387008990B4 /* Main.swift */,
+				E1A6B64D1FAA3F090023819E /* RightMenu.swift */,
 				E1C239711F6A3C16000ECA09 /* MenuSlide.swift */,
 				E1492B831F9A4044009AF557 /* webcontroller.swift */,
 				E1CA488F1F9B45D900716946 /* ManHinh2controller.swift */,
-				E157650C1FA481D20072FCE1 /* DangKycontroller.swift */,
+				E157650C1FA481D20072FCE1 /* DangNhapcontroller.swift */,
 				E152B60E1FA8CA4000571CAF /* Realm.swift */,
 				E152B6121FA8CFC000571CAF /* RealmService.swift */,
+				E1C4278E1FA9FDF7004929FA /* DangKyUserController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -520,6 +529,8 @@
 				"${BUILT_PRODUCTS_DIR}/FacebookShare/FacebookShare.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/TwicketSegmentedControl/TwicketSegmentedControl.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -532,6 +543,8 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookShare.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TwicketSegmentedControl.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -583,12 +596,15 @@
 				E1C239781F6A5B9D000ECA09 /* MenuButton.swift in Sources */,
 				E13A8B3B1F617EA8002B32E4 /* Project1_Duy.xcdatamodeld in Sources */,
 				E184032C1F619B9C00570A74 /* Trang.swift in Sources */,
+				E1A6B64E1FAA3F090023819E /* RightMenu.swift in Sources */,
 				E1492B841F9A4044009AF557 /* webcontroller.swift in Sources */,
 				E10437861F652C6600582385 /* ExtensionForUserDefauls.swift in Sources */,
-				E157650D1FA481D20072FCE1 /* DangKycontroller.swift in Sources */,
+				E157650D1FA481D20072FCE1 /* DangNhapcontroller.swift in Sources */,
 				E1F2B3891F6CE67A00646F8F /* MenuTableViewCell.swift in Sources */,
 				E152B6131FA8CFC000571CAF /* RealmService.swift in Sources */,
 				E145D0131F63B387008990B4 /* Main.swift in Sources */,
+				E1C4278F1FA9FDF7004929FA /* DangKyUserController.swift in Sources */,
+				E1A6B6501FAA452F0023819E /* rightmenuCell.swift in Sources */,
 				E152B6111FA8CBCE00571CAF /* UserRealm.swift in Sources */,
 				E1C239761F6A5862000ECA09 /* MenuCusTableViewCell.swift in Sources */,
 				E1F2B3871F6CE53E00646F8F /* XMLParser.swift in Sources */,

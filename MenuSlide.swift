@@ -18,6 +18,7 @@ class MenuSlide: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
     @IBAction func logOut(_ sender: Any) {
      
+        if userRealmClass.count == 1 { 
         let manager = FBSDKLoginManager()
         manager.logOut()
         // xoá thông tin facebook
@@ -30,7 +31,7 @@ class MenuSlide: UIViewController,UITableViewDelegate,UITableViewDataSource {
         let userHientai = userRealmClass[0]
         RealmService.shared.delete(userHientai)
         print("da xoa realm")
-        
+        }
         let loginController = ViewController()
         present(loginController, animated: true, completion: nil)
     }
