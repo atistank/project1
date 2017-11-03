@@ -13,12 +13,12 @@ import RealmSwift
 
 class MenuSlide: UIViewController,UITableViewDelegate,UITableViewDataSource {
     var userRealmClass: Results<UserRealm>!
-    
+  
     
     
     @IBAction func logOut(_ sender: Any) {
      
-        if userRealmClass.count == 1 { 
+        if userRealmClass.count != 0 { 
         let manager = FBSDKLoginManager()
         manager.logOut()
         // xoá thông tin facebook
@@ -28,9 +28,24 @@ class MenuSlide: UIViewController,UITableViewDelegate,UITableViewDataSource {
         // set trạng thái dang nhap = false
         UserDefaults.standard.setIsLoggedIn(value: false)
         // đăng xuất thì xoá user hiện tại trong csdl local
-        let userHientai = userRealmClass[0]
-        RealmService.shared.delete(userHientai)
-        print("da xoa realm")
+      
+       
+//            do
+//            {
+//                try RealmService.shared.realm.write {
+//
+//                    RealmService.shared.realm.delete(RealmService.shared.realm.objects(UserRealm.self))
+//                }
+//
+//            }
+//            catch
+//            {
+//                print("loi delete realm")
+//            }
+//
+        
+            RealmService.shared.deleteAll()
+            print("da xoa post realm")
         }
         let loginController = ViewController()
         present(loginController, animated: true, completion: nil)
@@ -95,19 +110,11 @@ class MenuSlide: UIViewController,UITableViewDelegate,UITableViewDataSource {
             let urlAvatar = URL(string: userRealmClass[0].avatarRealm)
             let dataAvatar = try? Data(contentsOf: (urlAvatar)!)
             self.avatarUser.image = UIImage(data: dataAvatar!)
-            //                                print(name)
-            //                                print(email)
-            //                                print(firstname)
-            //                                print(avatarFacebook)
-            //                                print(CoverFacebook)
         }
-        
     }
     
     
     func setStyleForAvatar(){
-        
-        
         avatarUser.layer.cornerRadius = 1
         avatarUser.layer.masksToBounds = false
         avatarUser.layer.borderWidth = 2
@@ -119,6 +126,8 @@ class MenuSlide: UIViewController,UITableViewDelegate,UITableViewDataSource {
         avatarUser.layer.shadowOffset = CGSize(width: 0, height: 0)
         avatarUser.layer.shadowOpacity = 0.8
     }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         TableView.delegate = self
@@ -128,6 +137,9 @@ class MenuSlide: UIViewController,UITableViewDelegate,UITableViewDataSource {
         // realm
         let realm = RealmService.shared.realm
         userRealmClass = realm.objects(UserRealm.self)
+     
+        
+        
         // load menu
         loaduser()
         
@@ -138,10 +150,6 @@ class MenuSlide: UIViewController,UITableViewDelegate,UITableViewDataSource {
         
         
         print(Realm.Configuration.defaultConfiguration.fileURL?.path)
-//
-//
-        
-        
       
     }
  

@@ -42,6 +42,8 @@
 		E1C239781F6A5B9D000ECA09 /* MenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C239771F6A5B9D000ECA09 /* MenuButton.swift */; };
 		E1C4278F1FA9FDF7004929FA /* DangKyUserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C4278E1FA9FDF7004929FA /* DangKyUserController.swift */; };
 		E1CA48901F9B45D900716946 /* ManHinh2controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CA488F1F9B45D900716946 /* ManHinh2controller.swift */; };
+		E1DDA5931FACE5D800BB7763 /* SoTrangRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1DDA5921FACE5D800BB7763 /* SoTrangRealm.swift */; };
+		E1F102941FAB62F600F385EB /* PostMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F102931FAB62F600F385EB /* PostMain.swift */; };
 		E1F2B3871F6CE53E00646F8F /* XMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F2B3861F6CE53E00646F8F /* XMLParser.swift */; };
 		E1F2B3891F6CE67A00646F8F /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F2B3881F6CE67A00646F8F /* MenuTableViewCell.swift */; };
 /* End PBXBuildFile section */
@@ -112,6 +114,8 @@
 		E1C239771F6A5B9D000ECA09 /* MenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuButton.swift; sourceTree = "<group>"; };
 		E1C4278E1FA9FDF7004929FA /* DangKyUserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DangKyUserController.swift; sourceTree = "<group>"; };
 		E1CA488F1F9B45D900716946 /* ManHinh2controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManHinh2controller.swift; sourceTree = "<group>"; };
+		E1DDA5921FACE5D800BB7763 /* SoTrangRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoTrangRealm.swift; sourceTree = "<group>"; };
+		E1F102931FAB62F600F385EB /* PostMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostMain.swift; sourceTree = "<group>"; };
 		E1F2B3861F6CE53E00646F8F /* XMLParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XMLParser.swift; sourceTree = "<group>"; };
 		E1F2B3881F6CE67A00646F8F /* MenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
 		F9EC620ABB6735BC5AD777BB /* Pods-Project1_Duy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project1_Duy.release.xcconfig"; path = "Pods/Target Support Files/Pods-Project1_Duy/Pods-Project1_Duy.release.xcconfig"; sourceTree = "<group>"; };
@@ -233,6 +237,8 @@
 				E1F2B3881F6CE67A00646F8F /* MenuTableViewCell.swift */,
 				E10212821FA1D23C00450C9F /* UserProfile.swift */,
 				E152B6101FA8CBCE00571CAF /* UserRealm.swift */,
+				E1F102931FAB62F600F385EB /* PostMain.swift */,
+				E1DDA5921FACE5D800BB7763 /* SoTrangRealm.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -617,7 +623,9 @@
 				E10437801F6529F400582385 /* NavigationCustom.swift in Sources */,
 				E1CA48901F9B45D900716946 /* ManHinh2controller.swift in Sources */,
 				E1B7048D1F61883B0084D0E9 /* PageCell.swift in Sources */,
+				E1F102941FAB62F600F385EB /* PostMain.swift in Sources */,
 				E10437821F652A6800582385 /* ManHinhHomeController.swift in Sources */,
+				E1DDA5931FACE5D800BB7763 /* SoTrangRealm.swift in Sources */,
 				E13A8B331F617EA8002B32E4 /* AppDelegate.swift in Sources */,
 				E152B60F1FA8CA4000571CAF /* Realm.swift in Sources */,
 			);

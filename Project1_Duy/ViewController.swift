@@ -167,8 +167,31 @@ class ViewController: UIViewController,UICollectionViewDelegate,UICollectionView
                         print(avatarFacebook)
                         print(CoverFacebook)
 
+                        
+                        
+                        
+                        
+                        
                         let newUser = UserRealm(email: email, avatarRealm: avatarFacebook, coverRealm: CoverFacebook, nameRealm: name, FirstnameRealm: firstname, ChucVuRealm: 0)
                         RealmService.shared.create(newUser)
+                        
+                        
+                        
+                        
+                        
+                        let url = URL(string: "https://blogdevtoidicodedao.herokuapp.com/add_user")
+                        var request:URLRequest = URLRequest(url: url!)
+                        request.httpMethod = "POST"
+                        request.httpBody = "username=\(name)&email=\(email)&password=\("123")&avatar=\(avatarFacebook)&cover=\(CoverFacebook)&quyenhan=1&trangthai=1&like=0".data(using: .utf8)
+                        
+                        URLSession.shared.dataTask(with: request, completionHandler: { (data, res, err) in
+                            if err != nil {
+                                
+                                print(err)
+                                return
+                            }
+                            print(String(data: data!, encoding: .utf8)!)
+                        }).resume()
                         
                     })
                     print(String(describing: Realm.Configuration.defaultConfiguration.fileURL))
@@ -183,7 +206,7 @@ class ViewController: UIViewController,UICollectionViewDelegate,UICollectionView
     }
     
     
-    
+ 
     
     @objc func Hanhdong(){
         // nếu lướt tới trang Star cuối thì nút next ko có tác dụng
@@ -229,6 +252,11 @@ class ViewController: UIViewController,UICollectionViewDelegate,UICollectionView
     var NextAnchor: NSLayoutConstraint?
     var startAnchor: NSLayoutConstraint?
     
+    
+    override func viewWillAppear(_ animated: Bool) {
+        let IndexSoTrang = SoTrangRealm(SoTrang: 1)
+        RealmService.shared.create(IndexSoTrang)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(collectionView)

@@ -14,8 +14,9 @@ import RealmSwift
 
 class Main: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
-    
-    
+     var postRealmClass: Results<PostMan>!
+     var SoTrangKiemTra: Results<SoTrangRealm>!
+   
    
     var indexCuaSugeu:Int = 0
 
@@ -28,8 +29,11 @@ class Main: UIViewController,UITableViewDelegate,UITableViewDataSource {
   //  @IBOutlet weak var Nut: UIBarButtonItem!
     var menuStatus: Bool = false
     private var rssItemsSuorce: [RSSItem]? = []
- 
-    var soTrang: Int = 1 // số trang
+    private var postRealmCatche: [PostMan]? = []
+
+   
+    
+  
   
     func setThongsoUI() {
         Nut.target = SWRevealViewController()
@@ -43,24 +47,56 @@ class Main: UIViewController,UITableViewDelegate,UITableViewDataSource {
 //        navigationController?.hidesBarsOnTap = true
         
     }
-    
 
-    
     private func fetchData(index: Int){
       
         DispatchQueue.global().async {
            let feedParser = FeedParser()
-            feedParser.parseFeed(url: "https://toidicodedao.com/feed/?paged=\(index)") { (data) in
-                self.rssItemsSuorce?.append(contentsOf:  data)
-                
+            feedParser.parseFeedRealm(url: "https://toidicodedao.com/feed/?paged=\(index)") { (data) in
+             
+                print("da vao day")
                 DispatchQueue.main.async {
-                 //  self.tbView.reloadData()
-                     self.tbView.reloadSections(IndexSet(integer: 0), with: .right) // reload section tableview
+              // nếu vào trang 1 và đã load sẳn 1 trang 10 item mà chưa load more
+                    if index == 1 && self.postRealmClass.count == 10 {
+                        print("vog lap index == 1 mang = 10")
+                  //    RealmService.shared.deleteAll()
+                        data.forEach({ (phantu) in
+                            print("vong lap 1")
+                            var kiemtra:Int = 0
+                            for i in 0...self.postRealmClass.count {
+                                if self.postRealmClass[i].titleRealm == phantu.titleRealm
+                                {
+                                    print("giong")
+                                   kiemtra = 1
+                                   break
+                                }
+                            }
+                            if kiemtra == 0 {
+                                print("kiem tra = 0")
+                                RealmService.shared.create(phantu)
+                                   self.tbView.reloadSections(IndexSet(integer: 0), with: .right) // reload section tableview
+                            }
+                            
+                        })
+                     
+                    }
+                    else if index == 1 && self.postRealmClass.count == 0  // lần đầu tiên load luôn, chưa có gì
+                    {
+                        print("vog lap cd")
+                        RealmService.shared.createArr(data)
+                           self.tbView.reloadSections(IndexSet(integer: 0), with: .right) // reload section tableview
+                    }
+                    else if index != 1  // đã load more rồi
+                    {
+                        print("vong lap loadmore")
+                        
+                       RealmService.shared.createArr(data)
+                        
+                        self.tbView.reloadSections(IndexSet(integer: 0), with: .right) // reload section tableview
+                    }
+                    
+                  
                 }
-//                OperationQueue.main.addOperation {
-//                    // reload phải trong luồng chính
-//                    self.tbView.reloadSections(IndexSet(integer: 0), with: .left) // reload section tableview
-//                }
             }
         }
         
@@ -73,13 +109,17 @@ class Main: UIViewController,UITableViewDelegate,UITableViewDataSource {
         setThongsoUI()
         tbView.delegate = self
         tbView.dataSource = self
-     
-       
+        // realm
+        print("cau lenh nay")
+        let realm = RealmService.shared.realm
+        postRealmClass = realm.objects(PostMan.self)
+         SoTrangKiemTra = realm.objects(SoTrangRealm.self)
+        print("thi ra la vay")
         // bỏ dòng line giữa các cell của tableview
         tbView.separatorStyle = UITableViewCellSeparatorStyle.none
         fetchData(index: 1)
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-
+       
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -112,23 +152,17 @@ extension Main{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // nếu ko get dc rsstem thì trả về 0, còn dc thì số cell trả về số mảng
-        guard  let rssItems = rssItemsSuorce else {
-            return 0
-        }
-        return rssItems.count
+    
+        return postRealmClass.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellMain", for: indexPath) as! MainTableViewCell
         cell.selectionStyle = .none
-        
-        guard let asd = self.rssItemsSuorce?[indexPath.row]  else {
-            return cell
-        }
-        
-       cell.item = asd
-        
+       
+            cell.itemRealm = postRealmClass[indexPath.row]
+            
         
         return cell
     }
@@ -150,7 +184,7 @@ extension Main{
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let manhinhNoiDung = segue.destination as! webcontroller
-        manhinhNoiDung.htmlNoiDung = self.rssItemsSuorce![indexCuaSugeu].link!
+        manhinhNoiDung.htmlNoiDung = postRealmClass![indexCuaSugeu].linkRealm
           self.hidesBottomBarWhenPushed = true
         UIView.animate(withDuration: 1, animations: {
              self.tabBarController?.tabBar.isHidden = true
@@ -164,35 +198,30 @@ extension Main{
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         // vi tri luc dau từ bên trái (-255) ở trên (20) đi xuống
-        
-        
-            cell.alpha = 0
-            let vitricell = CATransform3DTranslate(CATransform3DIdentity, -250, 20, 0 )
-            cell.layer.transform = vitricell
-       
-            UIView.animate(withDuration: 0.8) {
-                cell.alpha = 1.0
-                cell.layer.transform = CATransform3DIdentity
-            }
-           
-        
-        
-        
-        
-        
-        
-        
-        if indexPath.row == (rssItemsSuorce?.count)! - 1 {
-            soTrang += 1
-           fetchData(index: soTrang)
+   
+//            cell.alpha = 0
+//            let vitricell = CATransform3DTranslate(CATransform3DIdentity, -250, 20, 0 )
+//            cell.layer.transform = vitricell
+//       
+//            UIView.animate(withDuration: 0.8) {
+//                cell.alpha = 1.0
+//                cell.layer.transform = CATransform3DIdentity
+//            }
+
+        if indexPath.row == (self.postRealmClass?.count)! - 1 {
+            print("Load more")
+            
+            var x = Int(SoTrangKiemTra[0].SoTrangString()!)
+            print("so trang chua cong la \(x!)")
+            x = x! + 1
+            
+            
+            RealmService.shared.update(SoTrangKiemTra[0], with: ["SoTrang" : x])
+             print("so trang da cong la \(x!)")
+            fetchData(index: x!)
            
           }
-        
-        
-        
-        
-        
-        
+
         }
     func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
         let cell  = tableView.cellForRow(at: indexPath)

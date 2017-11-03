@@ -33,6 +33,22 @@ class RealmService {
         
     }
     
+    func createArr<T: Object>(_ objects: [T])
+    {
+        do
+        {
+            try realm.write
+            {
+               realm.add(objects)
+            }
+            
+        }catch
+        {
+            print("loi create arr realm")
+        }
+        
+    }
+    
     
     func update<T: Object>(_ object: T, with dictionary: [String: Any?])
     {
@@ -54,6 +70,8 @@ class RealmService {
         
         
     }
+    
+    
     func delete<T: Object>(_ object: T)
     {
         do
@@ -69,6 +87,42 @@ class RealmService {
         }
         
     }
+    func deleteArr<T: Object>(_ objects: [T])
+    {
+        do
+        {
+            try realm.write
+            {
+                realm.delete(objects)
+            }
+        }
+        catch
+        {
+            print("loi delete realm")
+        }
+        
+    }
+    
+    
+    
+    
+    func deleteAll()
+    {
+        do
+        {
+            try realm.write
+            {
+                realm.deleteAll()
+            }
+        }
+        catch
+        {
+            print("loi delete realm")
+        }
+        
+    }
+    
+    
     
     func post(_ error: Error)
     {

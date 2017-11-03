@@ -24,12 +24,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             statusBar.backgroundColor = #colorLiteral(red: 0.003921568627, green: 0.4862745098, blue: 0.9098039216, alpha: 1)
         }
         
-        
-        
+     
+    
+       
         
         if UserDefaults.standard.isLoggedIn() {
             
-            
+      	
+         
             self.window = UIWindow(frame: UIScreen.main.bounds)
             
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -42,6 +44,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         }
         else    {
+            let IndexSoTrang = SoTrangRealm(SoTrang: 1)
+            RealmService.shared.create(IndexSoTrang)
+            
+            
             self.window = UIWindow(frame: UIScreen.main.bounds)
             
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
