@@ -8,7 +8,7 @@
 
 import UIKit
 import RealmSwift
-
+import Social
 
 
 
@@ -33,7 +33,38 @@ class Main: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
    
     
-  
+    @IBAction func NutShare(_ sender: Any) {
+        // cau hinh cho action sheet ( hien tu duoi len ) khong them textfield vao dc
+        let actionsheet: UIAlertController = UIAlertController(title: "Share Bài Viết", message: "Chia sẽ tri thức", preferredStyle: UIAlertControllerStyle.actionSheet)
+        // them nut ok vao action sheet
+        let btnOk: UIAlertAction = UIAlertAction(title: "Share qua Facebook", style: .default) { (action) in
+            print("share1")
+            if SLComposeViewController.isAvailable(forServiceType: SLServiceTypeFacebook)
+            {
+                print("share2")
+                let post = SLComposeViewController(forServiceType: SLServiceTypeFacebook)!
+                post.setInitialText("asd")
+            //    post.add(#imageLiteral(resourceName: "hinh1-1"))
+                self.present(post, animated: true, completion: nil)
+            }
+            else{
+                print("share3")
+                self.showThongbaoLoiShare()
+            }
+        }
+        actionsheet.addAction(btnOk)
+        // hien thi
+        present(actionsheet, animated: true, completion: nil)
+    }
+    
+    func showThongbaoLoiShare()
+    {
+        print("thong bao loi")
+        let thongbao = UIAlertController(title: "Lỗi", message: "Bạn chưa kết nối đến facebook :(", preferredStyle: .alert)
+        let action = UIAlertAction(title: "Hiểu rồi", style: .cancel, handler: nil)
+        thongbao.addAction(action)
+        present(thongbao, animated: true, completion: nil)
+    }
   
     func setThongsoUI() {
         Nut.target = SWRevealViewController()
@@ -56,6 +87,7 @@ class Main: UIViewController,UITableViewDelegate,UITableViewDataSource {
              
                 print("da vao day")
                 DispatchQueue.main.async {
+                    
               // nếu vào trang 1 và đã load sẳn 1 trang 10 item mà chưa load more
                     if index == 1 && self.postRealmClass.count == 10 {
                         print("vog lap index == 1 mang = 10")
@@ -83,6 +115,8 @@ class Main: UIViewController,UITableViewDelegate,UITableViewDataSource {
                     else if index == 1 && self.postRealmClass.count == 0  // lần đầu tiên load luôn, chưa có gì
                     {
                         print("vog lap cd")
+                        
+                        
                         RealmService.shared.createArr(data)
                            self.tbView.reloadSections(IndexSet(integer: 0), with: .right) // reload section tableview
                     }

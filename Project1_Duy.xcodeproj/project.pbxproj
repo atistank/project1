@@ -33,6 +33,7 @@
 		E152B6131FA8CFC000571CAF /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E152B6121FA8CFC000571CAF /* RealmService.swift */; };
 		E157650D1FA481D20072FCE1 /* DangNhapcontroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = E157650C1FA481D20072FCE1 /* DangNhapcontroller.swift */; };
 		E184032C1F619B9C00570A74 /* Trang.swift in Sources */ = {isa = PBXBuildFile; fileRef = E184032B1F619B9C00570A74 /* Trang.swift */; };
+		E19219021FADF56300DCB444 /* TrinhDuyetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19219011FADF56300DCB444 /* TrinhDuyetController.swift */; };
 		E1A6B64E1FAA3F090023819E /* RightMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A6B64D1FAA3F090023819E /* RightMenu.swift */; };
 		E1A6B6501FAA452F0023819E /* rightmenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A6B64F1FAA452F0023819E /* rightmenuCell.swift */; };
 		E1B7048D1F61883B0084D0E9 /* PageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B7048C1F61883B0084D0E9 /* PageCell.swift */; };
@@ -103,6 +104,7 @@
 		E152B6121FA8CFC000571CAF /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
 		E157650C1FA481D20072FCE1 /* DangNhapcontroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DangNhapcontroller.swift; sourceTree = "<group>"; };
 		E184032B1F619B9C00570A74 /* Trang.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trang.swift; sourceTree = "<group>"; };
+		E19219011FADF56300DCB444 /* TrinhDuyetController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrinhDuyetController.swift; sourceTree = "<group>"; };
 		E1A6B64D1FAA3F090023819E /* RightMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightMenu.swift; sourceTree = "<group>"; };
 		E1A6B64F1FAA452F0023819E /* rightmenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rightmenuCell.swift; sourceTree = "<group>"; };
 		E1B7048C1F61883B0084D0E9 /* PageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PageCell.swift; path = Project1_Duy/PageCell.swift; sourceTree = "<group>"; };
@@ -276,6 +278,7 @@
 				E152B60E1FA8CA4000571CAF /* Realm.swift */,
 				E152B6121FA8CFC000571CAF /* RealmService.swift */,
 				E1C4278E1FA9FDF7004929FA /* DangKyUserController.swift */,
+				E19219011FADF56300DCB444 /* TrinhDuyetController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -606,6 +609,7 @@
 				E1492B841F9A4044009AF557 /* webcontroller.swift in Sources */,
 				E10437861F652C6600582385 /* ExtensionForUserDefauls.swift in Sources */,
 				E157650D1FA481D20072FCE1 /* DangNhapcontroller.swift in Sources */,
+				E19219021FADF56300DCB444 /* TrinhDuyetController.swift in Sources */,
 				E1F2B3891F6CE67A00646F8F /* MenuTableViewCell.swift in Sources */,
 				E152B6131FA8CFC000571CAF /* RealmService.swift in Sources */,
 				E145D0131F63B387008990B4 /* Main.swift in Sources */,
@@ -796,6 +800,7 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -817,6 +822,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "Project1_Duy/Project1_Duy-Bridging-Header.h";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

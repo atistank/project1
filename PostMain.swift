@@ -15,17 +15,19 @@ class PostMan: Object {
     @objc dynamic var timeRealm:String = ""
     @objc dynamic var imgRealm:String = ""
     @objc dynamic var linkRealm:String = ""
+     @objc dynamic var photoData: NSData?
     let commentRealm = RealmOptional<Int>()
     
     
     
-    convenience init(titleRealm: String, DescipRealm: String, timeRealm: String, imgRealm:String,linkRealm : String,commentRealm:Int?) {
+    convenience init(titleRealm: String, DescipRealm: String, timeRealm: String, imgRealm:String,linkRealm : String,photoData: NSData,commentRealm:Int?) {
         self.init()
         self.titleRealm = titleRealm
         self.DescipRealm = DescipRealm
         self.timeRealm = timeRealm
         self.imgRealm = imgRealm
         self.linkRealm = linkRealm
+        self.photoData = photoData
         self.commentRealm.value = commentRealm
 
     }
