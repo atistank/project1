@@ -9,10 +9,22 @@
 import UIKit
 import RealmSwift
 import Social
+import FBSDKShareKit
+import FacebookShare
+import Whisper
+
+
+protocol shareFacebook {
+   func thongbaoShare(link:String)
+    func showThongbaoLoiShare()
+}
 
 
 
-class Main: UIViewController,UITableViewDelegate,UITableViewDataSource {
+class Main: UIViewController,UITableViewDelegate,UITableViewDataSource,shareFacebook {
+  
+    
+
 
      var postRealmClass: Results<PostMan>!
      var SoTrangKiemTra: Results<SoTrangRealm>!
@@ -33,30 +45,7 @@ class Main: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
    
     
-    @IBAction func NutShare(_ sender: Any) {
-        // cau hinh cho action sheet ( hien tu duoi len ) khong them textfield vao dc
-        let actionsheet: UIAlertController = UIAlertController(title: "Share Bài Viết", message: "Chia sẽ tri thức", preferredStyle: UIAlertControllerStyle.actionSheet)
-        // them nut ok vao action sheet
-        let btnOk: UIAlertAction = UIAlertAction(title: "Share qua Facebook", style: .default) { (action) in
-            print("share1")
-            if SLComposeViewController.isAvailable(forServiceType: SLServiceTypeFacebook)
-            {
-                print("share2")
-                let post = SLComposeViewController(forServiceType: SLServiceTypeFacebook)!
-                post.setInitialText("asd")
-            //    post.add(#imageLiteral(resourceName: "hinh1-1"))
-                self.present(post, animated: true, completion: nil)
-            }
-            else{
-                print("share3")
-                self.showThongbaoLoiShare()
-            }
-        }
-        actionsheet.addAction(btnOk)
-        // hien thi
-        present(actionsheet, animated: true, completion: nil)
-    }
-    
+  
     func showThongbaoLoiShare()
     {
         print("thong bao loi")
@@ -73,9 +62,38 @@ class Main: UIViewController,UITableViewDelegate,UITableViewDataSource {
         Nutphai.action = #selector(handleSignOut)
         Nut.tintColor = #colorLiteral(red: 0.9999018312, green: 1, blue: 0.9998798966, alpha: 1)
         Nutphai.tintColor = #colorLiteral(red: 0.9999018312, green: 1, blue: 0.9998798966, alpha: 1)
-        navigationItem.title = "Trang Chủ"
+       
+        
 //       navigationController?.hidesBarsOnSwipe = true
 //        navigationController?.hidesBarsOnTap = true
+        
+    }
+    
+    func thongbaoShare(link:String){
+        print("hello")
+        // cau hinh cho action sheet ( hien tu duoi len ) khong them textfield vao dc
+        let actionsheet: UIAlertController = UIAlertController(title: "Share Bài Viết", message: "Chia sẽ tri thức", preferredStyle: UIAlertControllerStyle.actionSheet)
+        // them nut ok vao action sheet
+        let btnOk: UIAlertAction = UIAlertAction(title: "Share qua Facebook", style: .default) { (action) in
+           
+            self.xulyShareFacebook(link: link)
+        }
+        print("da thong bao")
+        print(link)
+        actionsheet.addAction(btnOk)
+        // hien thi
+        present(actionsheet, animated: true, completion: nil)
+    }
+    
+    func xulyShareFacebook(link:String){
+        print("xu ly")
+        let fbContent = FBSDKShareLinkContent()
+        fbContent.contentURL = URL(string: link)
+        let fb = FBSDKShareDialog()
+        fb.shareContent = fbContent
+        
+        //   fb.shouldFailOnDataError = true
+        fb.show()
         
     }
 
@@ -85,7 +103,6 @@ class Main: UIViewController,UITableViewDelegate,UITableViewDataSource {
            let feedParser = FeedParser()
             feedParser.parseFeedRealm(url: "https://toidicodedao.com/feed/?paged=\(index)") { (data) in
              
-                print("da vao day")
                 DispatchQueue.main.async {
                     
               // nếu vào trang 1 và đã load sẳn 1 trang 10 item mà chưa load more
@@ -144,16 +161,27 @@ class Main: UIViewController,UITableViewDelegate,UITableViewDataSource {
         tbView.delegate = self
         tbView.dataSource = self
         // realm
-        print("cau lenh nay")
+  
         let realm = RealmService.shared.realm
         postRealmClass = realm.objects(PostMan.self)
          SoTrangKiemTra = realm.objects(SoTrangRealm.self)
-        print("thi ra la vay")
+        print("ViewDidload Main")
         // bỏ dòng line giữa các cell của tableview
         tbView.separatorStyle = UITableViewCellSeparatorStyle.none
         fetchData(index: 1)
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
        
+//        let message = Message(title: "Wellcome To DevBlog!", backgroundColor: #colorLiteral(red: 0, green: 0.8835573792, blue: 0.3922109604, alpha: 1))
+//
+//        // Show and hide a message after delay
+//        Whisper.show(whisper: message, to: navigationController!, action: .present)
+//
+        
+//        let announcement = Announcement(title: "Welcome To DevBlog", subtitle: "Chúc bạn có những giờ phút vui vẻ", image: UIImage(named: "duy"))
+//        Whisper.show(shout: announcement, to: navigationController!, completion: {
+//            print("The shout was silent.")
+//        })
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -194,7 +222,7 @@ extension Main{
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellMain", for: indexPath) as! MainTableViewCell
         cell.selectionStyle = .none
-       
+        cell.delegateShareThongbao = self
             cell.itemRealm = postRealmClass[indexPath.row]
             
         
@@ -219,10 +247,10 @@ extension Main{
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let manhinhNoiDung = segue.destination as! webcontroller
         manhinhNoiDung.htmlNoiDung = postRealmClass![indexCuaSugeu].linkRealm
-          self.hidesBottomBarWhenPushed = true
-        UIView.animate(withDuration: 1, animations: {
-             self.tabBarController?.tabBar.isHidden = true
-        }, completion: nil)
+//          self.hidesBottomBarWhenPushed = true
+//        UIView.animate(withDuration: 1, animations: {
+//             self.tabBarController?.tabBar.isHidden = true
+//        }, completion: nil)
 
         // 3 dòng dưới đây dùng để paste nội dung content đã parsing, dùng link web thì khỏi dùng.
 //        var TheInDam1 = "<h3><strong>" + String(describing: self.rssItems![indexCuaSugeu].title) + "</strong></h3>"

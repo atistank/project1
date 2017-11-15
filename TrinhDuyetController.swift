@@ -7,11 +7,13 @@
 //
 
 import UIKit
+import Whisper
 
 class TrinhDuyetController: UIViewController {
     var lichsu:Array<String> = Array<String>()
     var indexViTri:Int = 0
     
+    @IBOutlet weak var NaviGia: UIVisualEffectView!
     @IBAction func btnBack(_ sender: Any) {
         // nút back
         if lichsu.count > 0
@@ -55,44 +57,66 @@ class TrinhDuyetController: UIViewController {
     
     @IBAction func Go(_ sender: Any) {
         
-        if  let url = URL(string: Link.text!)
-        {
-            var link:String = Link.text!
+        var link:String = Link.text!
+        link = link.replacingOccurrences(of: " ", with: "%")
+//        if  let url = URL(string: link)
+//        {
+        
+            
             if link.hasPrefix("http://") || link.hasPrefix("https://")
             {
                 lichsu.append(link)
-                let req: URLRequest = URLRequest(url: url)
-                
-                web.loadRequest(req)
-                
-                
-                
+                if  let url = URL(string: link){
+                    let req: URLRequest = URLRequest(url: url)
+                    web.loadRequest(req)
+                }
                 
             }
             else
             {
-                // thêm hppt vào url ko có http
-                link = "http://\(link)"
-                lichsu.append(link)
-                
-                let url2:URL = URL(string: link)!
-                let req: URLRequest = URLRequest(url: url2)
-                
-                web.loadRequest(req)
+                if link.suffix(4) == ".com" || link.suffix(3) == (".vn")
+                {
+                    // thêm hppt vào url ko có http
+                    link = "http://\(link)"
+                    print(link)
+                    lichsu.append(link)
+                    
+                    
+                    let url2:URL = URL(string: link)!
+                    let req: URLRequest = URLRequest(url: url2)
+                    
+                    web.loadRequest(req)
+                }
+                else
+                {
+                    // thêm hppt vào url ko có http
+                    link = "http://google.com/search?q=\(link)"
+                    lichsu.append(link)
+                      print(link)
+                    if let url2:URL = URL(string: link) {
+                        let req: URLRequest = URLRequest(url: url2)
+                        web.loadRequest(req)
+                    }
+                   
+                    
+                }
             }
             indexViTri = lichsu.count - 1
-        }
-        else
-        {
-            print("loi")
-        }
-        
+
+    //    }
+//        else
+//        {
+//            let murmur = Murmur(title: "Lổi rồi bồ !!!")
+//            Whisper.show(whistle: murmur, action: .show(0.5))
+//        }
+    
     }
     override func viewDidLoad() {
         super.viewDidLoad()
          let url2 = URL(string: "https://www.google.com.vn")
         let req: URLRequest = URLRequest(url: url2!)
         web.loadRequest(req)
+    
         
     }
     

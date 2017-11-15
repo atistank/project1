@@ -333,7 +333,7 @@ class ViewController: UIViewController,UICollectionViewDelegate,UICollectionView
             cell.layer.transform = vitricell
             // sau 1 giây hiện ra và quay lai vi tri mac dinh
             
-            UIView.animate(withDuration: 0.8) {
+            UIView.animate(withDuration: 0.7) {
                 cell.alpha = 1.0
                 cell.layer.transform = CATransform3DIdentity
             }

@@ -6,7 +6,11 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "Left_ffffff_50.png",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "filename" : "68.jpg",
       "scale" : "2x"
     },
     {

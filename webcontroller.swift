@@ -12,10 +12,15 @@ class webcontroller: UIViewController {
 
     var htmlNoiDung = ""
     
+    @IBAction func back(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
     
     @IBOutlet weak var webView: UIWebView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
         webView.loadRequest(URLRequest(url: URL(string: htmlNoiDung)!))
    //     webView.loadHTMLString(htmlNoiDung, baseURL: nil)
     
